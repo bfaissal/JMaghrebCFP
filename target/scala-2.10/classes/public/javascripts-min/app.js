@@ -15,7 +15,10 @@ function loginController($scope,$resource){
             else{
                 $scope.message = {msg : "Username or password incorrect",type:'alert-error'}
             }
-        })
+        },
+            function(){
+                $scope.message = {msg : "Username or password incorrect",type:'alert-error'}
+            })
     }
 }
 
