@@ -14,21 +14,24 @@ object Application extends Controller {
     implicit request => {
       session.get("name").map {
         _ => Ok(views.html.go("Salam ! Your new application is ready."))
-      }
-        .getOrElse(Unauthorized("Your not allowed to access this section"))
+      }.getOrElse(Unauthorized("Your not allowed to access this section"))
     }
   }
 
   def login = Action {
     implicit request =>
+      try{
       request.body.asJson.map {
         json => {
           val query = MongoDBObject("_id" -> (json \ "_id").as[String]) ++ ("password" -> (json \ "password").as[String])
-          Ok(DBUtil.speakers.find(query).mkString(","))
-            .withSession("name" -> (json \ "_id").as[String]).as(JSON)
+          Ok(DBUtil.speakers.find(query).mkString(",")).withSession("name" -> (json \ "_id").as[String]).as(JSON)
 
         }
       }.getOrElse(BadRequest("Error"))
+      }
+      catch{
+        case e :Exception => BadRequest("Please enter a valid username/password !");
+      }
   }
 
   def logout = Action {
@@ -54,7 +57,6 @@ object Application extends Controller {
                 case _ => throw new ClassCastException
               })
               Ok("{}").as(JSON)
-
             }
           }
         }.getOrElse(BadRequest("Error"))
@@ -71,11 +73,11 @@ object Application extends Controller {
           if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
           else {
             try {
-              DBUtil.speakers.update(MongoDBObject("_id" -> request.session.get("name")), (com.mongodb.util.JSON.parse(json.toString())
+              DBUtil.speakers.update(MongoDBObject("_id" -> request.session.get("name")), com.mongodb.util.JSON.parse(json.toString())
               match {
                 case x: DBObject => x;
                 case _ => throw new ClassCastException
-              }))
+              })
               Ok(json).as(JSON)
             }
             catch {

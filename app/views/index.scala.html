@@ -1,9 +1,42 @@
 @(message: String)
 
 @main("Welcome to Play 2.1") {
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
+    <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
+        <div class="effect_2 padding_slide1">
+            <div class="container clearfix">
+
+                <div id="content" class="grid_12">
+                    <div class="filtr_bg">
+                        <div class="slogan">
+                            <div class="left_bord"></div>
+                            <div class="slogan_text">7 & 8 Nov. 2013</div>
+                            <div class="right_bord"></div>
+                        </div>
+                        <h1>JMaghreb 2.0</h1>
+                        <h2>The bigest JAVA conference in north Africa</h2>
+                        <div class="left_bord"></div>
+                        <div class="button_block">
+                            <div class="button_bg"></div>
+                            <a class="button" onclick="window.location.href='#legend'" href="#legend">
+                                Sign In / Sign UP<span></span></a>
+
+                        </div>
+
+                        <div class="right_bord"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- -->
+
+
     <div class="container" id="loginModal">
         <div>
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3>Have an Account?</h3>
         </div>
         <div >
@@ -24,9 +57,10 @@
                                         {{message.msg}}
                                     </div>
                                 </div>
+
                                 <div class="control-group">
                                         <!-- Username -->
-                                    <label class="control-label"  for="username" >Username</label>
+                                    <label class="control-label" for="username" >Username</label>
                                     <div class="controls">
                                         <input type="text" id="username" name="username" ng-model="login._id" placeholder="" class="input-xlarge">
                                     </div>
@@ -51,9 +85,9 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="create">
-                        <form id="tab" class="form-horizontal" action='' method="POST" ng-controller="registerController">
+                        <form id="registration" name="registration" novalidate class="form-horizontal" action='' method="POST" ng-controller="registerController">
                             <fieldset>
-                                <div id="legend">
+                                <div id="legendRegistration">
                                     <legend class="">Speak In JMaghreb</legend>
                                 </div>
                                 <div class="control-group" ng-show="message.msg != null">
@@ -61,42 +95,53 @@
                                         {{message.msg}}
                                     </div>
                                 </div>
-                            <div class="control-group">
-                                <label class="control-label">First Name</label>
-                                <div class="controls">
-                                    <input type="text" ng-model="speaker.fname" class="input-xlarge">
+                                <div class="control-group">
+                                    All fields are required
                                 </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Last Name</label>
-                                <div class="controls">
-                                    <input type="text" ng-model="speaker.lname" class="input-xlarge">
+                                <div class="control-group">
+                                    <label class="control-label">First Name</label>
+                                    <div class="controls">
+                                        <input type="text" ng-required="true" ng-model="speaker.fname" class="input-xlarge">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Email</label>
-                                <div class="controls">
-                                    <input type="email" ng-required="true" required="true" ng-model="speaker._id" class="input-xlarge">
+                                <div class="control-group">
+                                    <label class="control-label">Last Name</label>
+                                    <div class="controls">
+                                        <input type="text" ng-model="speaker.lname" class="input-xlarge">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Password</label>
-                                <div class="controls">
-                                    <input type="password" ng-model="speaker.password" class="input-xlarge">
+                                <div class="control-group">
+                                    <label class="control-label">Email</label>
+                                    <div class="controls">
+                                        <input type="email" ng-required="true" required="true" ng-model="speaker._id" class="input-xlarge">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group">
-                                <label class="control-label">Confirm password</label>
-                                <div class="controls">
-                                    <input type="password" ng-model="speaker.cpassword" class="input-xlarge">
+                                <div class="control-group">
+                                    <label class="control-label">Bio</label>
+                                    <div class="controls">
+                                        <textarea rows="10" ng-maxlength="1000" ng-model="speaker.bio" ng-required="true" class="input-xxlarge"></textarea>
+                                        <div>1000 char.</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group">
+                                <div class="control-group">
+                                    <label class="control-label">Password</label>
+                                    <div class="controls">
+                                        <input type="password" ng-required="true" ng-model="speaker.password" class="input-xlarge">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Confirm password</label>
+                                    <div class="controls">
+                                        <input type="password" ng-required="true" ng-model="speaker.cpassword" class="input-xlarge">
+                                    </div>
+                                </div>
+                                <div class="control-group">
 
-                                <div class="controls">
-                                    <button class="btn" ng-click="createAccounte()">Create Account</button>
+                                    <div class="controls">
+                                        <button class="btn" ng-disabled="registration.$invalid || (speaker.password != speaker.cpassword)" ng-click="createAccounte()">
+                                            Create Account</button>
+                                    </div>
                                 </div>
-                            </div>
                             </fieldset>
                             <div>
 
@@ -106,5 +151,13 @@
                 </div>
             </div>
         </div>
-    
+    </div>
+    <div id="footer">
+        <div class="container clearfix">
+            <div class="copyright">JMaghreb &copy; 2013 | <a href="javascript:void(0);">Privacy Policy</a></div>
+            <div id="back_top"><a class="button" title="" data-slide="1"></a></div>
+        </div>
+    </div>
+
+
 }
