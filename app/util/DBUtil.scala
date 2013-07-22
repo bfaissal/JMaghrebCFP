@@ -11,7 +11,7 @@ import com.mongodb.casbah.Imports._
 object DBUtil {
         val client = {
           val server = new ServerAddress(System.getenv("OPENSHIFT_MONGODB_DB_HOST"), Integer.parseInt(System.getenv("OPENSHIFT_MONGODB_DB_PORT")))
-          val credential = MongoCredential("admin", "nhCD2lGrPUit")
+          val credential = MongoCredential("admin","jmaghrebcfp", "nhCD2lGrPUit".toCharArray)
           MongoClient(server,List(credential))
         }
         val db = client("jmaghrebcfp")
