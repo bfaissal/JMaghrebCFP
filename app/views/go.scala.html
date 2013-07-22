@@ -1,0 +1,98 @@
+@(message: String)
+
+@main("Welcome to Play 2.1") {
+    <div class="container" id="loginModal" ng-controller="talksController">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" id="brand" href="#">
+                        <span>{{login.lname}} {{login.fname}} ({{login._id}})</span>
+                    </a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="">
+                                <a href="./index.html">Talks</a>
+                            </li>
+                            <li class="">
+                                <a href="./getting-started.html">Profile</a>
+                            </li>
+                            <li class="">
+                                <a href="logout">logout</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <table class="table table-striped" ng-show="login.talks.length > 0 ">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Abstract</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="aTrack in login.talks">
+                            <td>{{aTrack.title}}</td>
+                            <td>{{ aTrack.abstract }}</td>
+                            <td>{{ aTrack.status == 2 ? 'Submitted' : 'In progress' }}</td>
+                            <td>
+                                <button class="btn" ng-click="editaTrack(aTrack)" value="edit"><span class="icon-edit"></span>Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form class="form-horizontal" action='' method="POST">
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Submit  a talk</legend>
+                        </div>
+                        <div class="control-group" ng-show="message.msg != null">
+                            <div class="alert" ng-class="message.type">
+                                {{message.msg}}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                                <!-- Title -->
+                            <label class="control-label"  for="title" >Title</label>
+                            <div class="controls">
+                                <input type="text" id="title" name="title" ng-model="selected.title" placeholder="" class="input-xlarge">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                                <!-- Abstract-->
+                            <label class="control-label" for="abstract">Abstract</label>
+                            <div class="controls">
+                                <textarea id="abstract" name="abstract" ng-model="selected.abstract" placeholder="" class="input-xlarge"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                                <!-- Button -->
+                            <div class="controls">
+                                <button class="btn" ng-click="addTalk()">Save</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+}
