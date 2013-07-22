@@ -9,7 +9,7 @@ import com.mongodb.casbah.Imports._
  * To change this template use File | Settings | File Templates.
  */
 object DBUtil {
-        val client = MongoClient("localhost",27017)
+        val client = MongoClient(System.getenv("OPENSHIFT_MONGODB_DB_HOST"),Integer.parseInt(System.getenv("OPENSHIFT_MONGODB_DB_PORT")))
         val db = client("test")
         val speakers = db("speakers")
 }
