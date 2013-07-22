@@ -43,42 +43,43 @@ object Application extends Controller {
 
   def createSpeaker() = Action {
     request =>
-      request.body.asJson.map {
-        json => {
-          if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
-          else {
-            //try{
-              println(json)
-            DBUtil.speakers += (com.mongodb.util.JSON.parse(json.toString())
-            match {
-              case x: DBObject => x;
-              case _ => throw new ClassCastException
-            })
-            Ok("{}").as(JSON)
-            //}
-            //catch{
-            //  case e  => InternalServerError("{\"message\":\"Dublicate username ;)\"}").as(JSON)
-            //}
+      try {
+        request.body.asJson.map {
+          json => {
+            if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
+            else {
+              DBUtil.speakers += (com.mongodb.util.JSON.parse(json.toString())
+              match {
+                case x: DBObject => x;
+                case _ => throw new ClassCastException
+              })
+              Ok("{}").as(JSON)
+
+            }
           }
-        }
-      }.getOrElse(BadRequest("Error"))
+        }.getOrElse(BadRequest("Error"))
+      }
+      catch {
+        case e => InternalServerError("{\"message\":\"Dublicate username ;)\"}").as(JSON)
+      }
   }
+
   def editSpeaker() = Action {
     request =>
       request.body.asJson.map {
         json => {
           if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
           else {
-            try{
-              DBUtil.speakers.update(MongoDBObject("_id" -> request.session.get("name")),(com.mongodb.util.JSON.parse(json.toString())
+            try {
+              DBUtil.speakers.update(MongoDBObject("_id" -> request.session.get("name")), (com.mongodb.util.JSON.parse(json.toString())
               match {
                 case x: DBObject => x;
                 case _ => throw new ClassCastException
               }))
               Ok(json).as(JSON)
             }
-            catch{
-              case e  => InternalServerError("{\"message\":\"Dublicate username \"}").as(JSON)
+            catch {
+              case e => InternalServerError("{\"message\":\"Dublicate username \"}").as(JSON)
             }
           }
         }
