@@ -119,10 +119,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBUtil.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DBUtil.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/util/DBUtil.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="83" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+            <state line="11" column="93" selection-start="252" selection-end="252" vertical-scroll-proportion="0.28645834">
               <folding />
             </state>
           </provider>
@@ -137,10 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="go.scala.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="go.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/go.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="42" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.16304348">
+            <state line="42" column="42" selection-start="1711" selection-end="1711" vertical-scroll-proportion="-3.75">
               <folding />
             </state>
           </provider>
@@ -183,13 +183,13 @@
         <option value="$PROJECT_DIR$/public/javascripts/controllers.js" />
         <option value="$PROJECT_DIR$/app/views/main.scala.html" />
         <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/app/util/DBUtil.scala" />
         <option value="$PROJECT_DIR$/app/controllers/Application.scala" />
         <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
         <option value="$PROJECT_DIR$/app/views/index.scala.html" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/app/views/go.scala.html" />
+        <option value="$PROJECT_DIR$/app/util/DBUtil.scala" />
       </list>
     </option>
   </component>
@@ -751,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/util/DBUtil.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="83" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="6" selection-start="305" selection-end="305" vertical-scroll-proportion="-6.0">
@@ -795,7 +788,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/go.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="42" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.16304348">
+        <state line="42" column="42" selection-start="1711" selection-end="1711" vertical-scroll-proportion="-3.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/util/DBUtil.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="93" selection-start="252" selection-end="252" vertical-scroll-proportion="0.28645834">
           <folding />
         </state>
       </provider>
