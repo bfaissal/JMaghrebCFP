@@ -2,7 +2,8 @@ package controllers
 
 import play.api.mvc._
 import com.mongodb.casbah.Imports._
-import util.DBUtil
+import play.api.libs.ws.WS
+import util.{MailUtil, DBUtil}
 
 object Application extends Controller {
 
@@ -52,6 +53,7 @@ object Application extends Controller {
       try {
         request.body.asJson.map {
           json => {
+
             if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
             else {
               DBUtil.speakers += (com.mongodb.util.JSON.parse(json.toString())
@@ -59,13 +61,14 @@ object Application extends Controller {
                 case x: DBObject => x;
                 case _ => throw new ClassCastException
               })
+              MailUtil.send((json \ "_id").as[String],"Accounte created","<b>Salam</b>",(json \ "fname").as[String])
               Ok("{}").as(JSON)
             }
           }
         }.getOrElse(BadRequest("Error"))
       }
       catch {
-        case e => InternalServerError("{\"message\":\"Dublicate username ;)\"}").as(JSON)
+        case e => {e.printStackTrace(); InternalServerError("{\"message\":\"Dublicate username ;)\"}").as(JSON)}
       }
   }
 
@@ -91,3 +94,5 @@ object Application extends Controller {
       }.getOrElse(BadRequest("Error"))
   }
 }
+
+

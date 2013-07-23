@@ -32,6 +32,7 @@ function registerController($scope,$resource){
     $scope.createAccounte = function (){
         $scope.speaker.$save(function(u){
             $scope.message = {msg : "Account Created",type:'alert-success'}
+            $scope.registration.$setPristine();
         },function(u){
             $scope.message = {msg : u.data.message,type:'alert-error'}
         });
