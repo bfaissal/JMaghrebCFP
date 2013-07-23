@@ -10,6 +10,8 @@ import com.mongodb.casbah.Imports._
  */
 object DBUtil {
         val client = {
+          println("System.getenv(\"OPENSHIFT_MONGODB_DB_USER\") = "+System.getenv("OPENSHIFT_MONGODB_DB_USER"))
+          println("System.getenv(\"OPENSHIFT_MONGODB_DB_PASSWORD\") = "+System.getenv("OPENSHIFT_MONGODB_DB_PASSWORD"))
           val server = new ServerAddress(System.getenv("OPENSHIFT_MONGODB_DB_HOST"), Integer.parseInt(System.getenv("OPENSHIFT_MONGODB_DB_PORT")))
           val credential = MongoCredential(System.getenv("OPENSHIFT_MONGODB_DB_USER"),"jmaghrebcfp", System.getenv("OPENSHIFT_MONGODB_DB_PASSWORD").toCharArray)
           MongoClient(server,List(credential))

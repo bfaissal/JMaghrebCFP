@@ -11,7 +11,7 @@
     <file path="/Dummy.txt" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374502378036" ignored="false" />
     <file path="$USER_HOME$/work/play/formBuilder/project/Build.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372610176717" ignored="false" />
     <file path="/Build.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372610182452" ignored="false" />
-    <file path="/DBUtil.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374542021284" ignored="false" />
+    <file path="/DBUtil.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374604650507" ignored="false" />
     <file path="$USER_HOME$/work/play/formBuilder/app/controllers/Application.java" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372646118608" ignored="false" />
     <file path="/app.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374545681927" ignored="false" />
     <file path="$PROJECT_DIR$/../LearnScala2/src/scala/lear/part1/SalamScala.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372811978088" ignored="false" />
@@ -23,6 +23,7 @@
     <file path="/go.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374588901474" ignored="false" />
     <file path="/main.css" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374543323694" ignored="false" />
     <file path="/DBUtil.java" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374502931662" ignored="false" />
+    <file path="$PROJECT_DIR$/target/scala-2.10/jmaghrebcfp_2.10-1.0-SNAPSHOT.pom" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374604641249" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +144,7 @@
       <file leaf-file-name="DBUtil.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/util/DBUtil.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="145" selection-start="545" selection-end="545" vertical-scroll-proportion="0.33854166">
+            <state line="13" column="64" selection-start="429" selection-end="429" vertical-scroll-proportion="0.33854166">
               <folding />
             </state>
           </provider>
@@ -744,7 +745,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/DBUtil.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="145" selection-start="545" selection-end="545" vertical-scroll-proportion="0.33854166">
+        <state line="13" column="64" selection-start="429" selection-end="429" vertical-scroll-proportion="0.33854166">
           <folding />
         </state>
       </provider>
