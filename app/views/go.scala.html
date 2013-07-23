@@ -31,17 +31,16 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" >
             <div class="span12">
                 <br/>
                 <br/>
                 <br/>
                 <br/>
-                <table class="table table-striped" ng-show="login.talks.length > 0 ">
+                <table class="table table-striped" ng-show="login.talks.length > 0 && !edition">
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Abstract</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
@@ -49,15 +48,18 @@
                     <tbody>
                         <tr ng-repeat="aTrack in login.talks">
                             <td>{{aTrack.title}}</td>
-                            <td>{{ aTrack.abstract }}</td>
                             <td>{{ aTrack.status == 2 ? 'Submitted' : 'In progress' }}</td>
                             <td>
-                                <button class="btn" ng-click="editaTrack(aTrack)" value="edit"><span class="icon-edit"></span>Edit</button>
+                                <button class="btn" ng-click="editaTrack(aTrack)" ng-show="aTrack.status == 1" value="edit"><span class="icon-edit"></span> Edit</button>
+                            </td>
+                            <td>
+                                <button class="btn" ng-click="submitTrack(aTrack)" ng-show="aTrack.status == 1" value="edit"><span class="icon-ok"></span> Submit</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <form class="form-horizontal" action='' method="POST">
+
+                <form ng-show="edition || showFormVal" class="form-horizontal" name="submissionForm" id="submissionForm" action='' method="POST" novalidate>
                     <fieldset>
                         <div id="legend">
                             <legend class="">Submit  a talk</legend>
@@ -71,27 +73,73 @@
                                 <!-- Title -->
                             <label class="control-label"  for="title" >Title</label>
                             <div class="controls">
-                                <input type="text" id="title" name="title" ng-model="selected.title" placeholder="" class="input-xlarge">
+                                <input type="text" id="title" name="title" ng-maxlength="200" ng-model="selected.title" ng-required="true" placeholder="" class="input-xxlarge">
                             </div>
                         </div>
 
                         <div class="control-group">
                                 <!-- Abstract-->
-                            <label class="control-label" for="abstract">Abstract</label>
+                            <label class="control-label" for="language">Language</label>
                             <div class="controls">
-                                <textarea id="abstract" name="abstract" ng-model="selected.abstract" placeholder="" class="input-xlarge"></textarea>
+                                <select name="language" id="language" class="input-xxlarge" ng-model="selected.language">
+                                    <option value="1">Arabic</option>
+                                    <option value="2">French</option>
+                                    <option value="3">English</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                                <!-- Abstract-->
+                            <label class="control-label" for="type">Abstract</label>
+                            <div class="controls">
+                                <select name="type" id="type" class="input-xxlarge" ng-model="selected.type">
+                                    <option value="0">Architecture and Security</option>
+                                    <option value="3">Cloud &amp; BigData</option>
+                                    <option value="7">Future&lt;Devoxx&gt;</option>
+                                    <option value="6">Java EE</option>
+                                    <option value="4">Java SE</option>
+                                    <option value="1">JVM Languages</option>
+                                    <option value="2">Methodology</option>
+                                    <option value="5">Mobile</option>
+                                    <option value="8">Web &amp; HTML5</option>
+                                </select>
                             </div>
                         </div>
 
+                        <div class="control-group">
+                                <!-- Abstract-->
+                            <label class="control-label" for="language">Audience Experience</label>
+                            <div class="controls">
+                                <select name="language" id="language" class="input-xxlarge" ng-model="selected.level">
+                                    <option value="1">Novice</option>
+                                    <option value="2">Senior</option>
+                                    <option value="3">Expert</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                                <!-- Abstract-->
+                            <label class="control-label" for="abstract">Abstract</label>
+                            <div class="controls">
+                                <textarea id="abstract" rows="10" ng-required="true" ng-maxlength="1000" name="abstract" ng-model="selected.abstract" placeholder="" class="input-xxlarge"></textarea>
+                            </div>
+                        </div>
 
                         <div class="control-group">
                                 <!-- Button -->
                             <div class="controls">
-                                <button class="btn" ng-click="addTalk()">Save</button>
+                                <button class="btn" ng-disabled="submissionForm.$invalid" ng-click="addTalk()">Save</button>
                             </div>
                         </div>
                     </fieldset>
                 </form>
+            </div>
+        </div>
+        <div class="row" ng-show="!edition && !showFormVal">
+            <div class="span12">
+                <button class="btn btn-primary" ng-click="showForm()">Add a talk</button>
             </div>
         </div>
     </div>

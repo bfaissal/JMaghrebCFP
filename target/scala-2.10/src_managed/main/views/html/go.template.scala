@@ -52,71 +52,119 @@ Seq[Any](format.raw/*1.19*/("""
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" >
             <div class="span12">
                 <br/>
                 <br/>
                 <br/>
                 <br/>
-                <table class="table table-striped" ng-show="login.talks.length > 0 ">
+                <table class="table table-striped" ng-show="login.talks.length > 0 && !edition">
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Abstract</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="aTrack in login.talks">
-                            <td>"""),format.raw/*51.33*/("""{"""),format.raw/*51.34*/("""{"""),format.raw/*51.35*/("""aTrack.title"""),format.raw/*51.47*/("""}"""),format.raw/*51.48*/("""}"""),format.raw/*51.49*/("""</td>
-                            <td>"""),format.raw/*52.33*/("""{"""),format.raw/*52.34*/("""{"""),format.raw/*52.35*/(""" aTrack.abstract """),format.raw/*52.52*/("""}"""),format.raw/*52.53*/("""}"""),format.raw/*52.54*/("""</td>
-                            <td>"""),format.raw/*53.33*/("""{"""),format.raw/*53.34*/("""{"""),format.raw/*53.35*/(""" aTrack.status == 2 ? 'Submitted' : 'In progress' """),format.raw/*53.85*/("""}"""),format.raw/*53.86*/("""}"""),format.raw/*53.87*/("""</td>
+                            <td>"""),format.raw/*50.33*/("""{"""),format.raw/*50.34*/("""{"""),format.raw/*50.35*/("""aTrack.title"""),format.raw/*50.47*/("""}"""),format.raw/*50.48*/("""}"""),format.raw/*50.49*/("""</td>
+                            <td>"""),format.raw/*51.33*/("""{"""),format.raw/*51.34*/("""{"""),format.raw/*51.35*/(""" aTrack.status == 2 ? 'Submitted' : 'In progress' """),format.raw/*51.85*/("""}"""),format.raw/*51.86*/("""}"""),format.raw/*51.87*/("""</td>
                             <td>
-                                <button class="btn" ng-click="editaTrack(aTrack)" value="edit"><span class="icon-edit"></span>Edit</button>
+                                <button class="btn" ng-click="editaTrack(aTrack)" ng-show="aTrack.status == 1" value="edit"><span class="icon-edit"></span> Edit</button>
+                            </td>
+                            <td>
+                                <button class="btn" ng-click="submitTrack(aTrack)" ng-show="aTrack.status == 1" value="edit"><span class="icon-ok"></span> Submit</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <form class="form-horizontal" action='' method="POST">
+
+                <form ng-show="edition || showFormVal" class="form-horizontal" name="submissionForm" id="submissionForm" action='' method="POST" novalidate>
                     <fieldset>
                         <div id="legend">
                             <legend class="">Submit  a talk</legend>
                         </div>
                         <div class="control-group" ng-show="message.msg != null">
                             <div class="alert" ng-class="message.type">
-                                """),format.raw/*67.33*/("""{"""),format.raw/*67.34*/("""{"""),format.raw/*67.35*/("""message.msg"""),format.raw/*67.46*/("""}"""),format.raw/*67.47*/("""}"""),format.raw/*67.48*/("""
+                                """),format.raw/*69.33*/("""{"""),format.raw/*69.34*/("""{"""),format.raw/*69.35*/("""message.msg"""),format.raw/*69.46*/("""}"""),format.raw/*69.47*/("""}"""),format.raw/*69.48*/("""
                             </div>
                         </div>
                         <div class="control-group">
                                 <!-- Title -->
                             <label class="control-label"  for="title" >Title</label>
                             <div class="controls">
-                                <input type="text" id="title" name="title" ng-model="selected.title" placeholder="" class="input-xlarge">
+                                <input type="text" id="title" name="title" ng-maxlength="200" ng-model="selected.title" ng-required="true" placeholder="" class="input-xxlarge">
                             </div>
                         </div>
 
                         <div class="control-group">
                                 <!-- Abstract-->
-                            <label class="control-label" for="abstract">Abstract</label>
+                            <label class="control-label" for="language">Language</label>
                             <div class="controls">
-                                <textarea id="abstract" name="abstract" ng-model="selected.abstract" placeholder="" class="input-xlarge"></textarea>
+                                <select name="language" id="language" class="input-xxlarge" ng-model="selected.language">
+                                    <option value="1">Arabic</option>
+                                    <option value="2">French</option>
+                                    <option value="3">English</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                                <!-- Abstract-->
+                            <label class="control-label" for="type">Abstract</label>
+                            <div class="controls">
+                                <select name="type" id="type" class="input-xxlarge" ng-model="selected.type">
+                                    <option value="0">Architecture and Security</option>
+                                    <option value="3">Cloud &amp; BigData</option>
+                                    <option value="7">Future&lt;Devoxx&gt;</option>
+                                    <option value="6">Java EE</option>
+                                    <option value="4">Java SE</option>
+                                    <option value="1">JVM Languages</option>
+                                    <option value="2">Methodology</option>
+                                    <option value="5">Mobile</option>
+                                    <option value="8">Web &amp; HTML5</option>
+                                </select>
                             </div>
                         </div>
 
+                        <div class="control-group">
+                                <!-- Abstract-->
+                            <label class="control-label" for="language">Audience Experience</label>
+                            <div class="controls">
+                                <select name="language" id="language" class="input-xxlarge" ng-model="selected.level">
+                                    <option value="1">Novice</option>
+                                    <option value="2">Senior</option>
+                                    <option value="3">Expert</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                                <!-- Abstract-->
+                            <label class="control-label" for="abstract">Abstract</label>
+                            <div class="controls">
+                                <textarea id="abstract" rows="10" ng-required="true" ng-maxlength="1000" name="abstract" ng-model="selected.abstract" placeholder="" class="input-xxlarge"></textarea>
+                            </div>
+                        </div>
 
                         <div class="control-group">
                                 <!-- Button -->
                             <div class="controls">
-                                <button class="btn" ng-click="addTalk()">Save</button>
+                                <button class="btn" ng-disabled="submissionForm.$invalid" ng-click="addTalk()">Save</button>
                             </div>
                         </div>
                     </fieldset>
                 </form>
             </div>
         </div>
+        <div class="row" ng-show="!edition && !showFormVal">
+            <div class="span12">
+                <button class="btn btn-primary" ng-click="showForm()">Add a talk</button>
+            </div>
+        </div>
     </div>
-""")))})),format.raw/*98.2*/("""
+""")))})),format.raw/*146.2*/("""
 """))}
     }
     
@@ -129,11 +177,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jul 22 16:12:19 EDT 2013
+                    DATE: Mon Jul 22 22:17:19 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/go.scala.html
-                    HASH: 388732f54baed909049afc34babc65c2059b0f0a
-                    MATRIX: 502->1|596->18|633->21|668->48|707->50|1353->668|1382->669|1411->670|1450->681|1479->682|1508->683|1537->684|1566->685|1595->686|1634->697|1663->698|1692->699|1722->701|1751->702|1780->703|1817->712|1846->713|1875->714|3199->2010|3228->2011|3257->2012|3297->2024|3326->2025|3355->2026|3421->2064|3450->2065|3479->2066|3524->2083|3553->2084|3582->2085|3648->2123|3677->2124|3706->2125|3784->2175|3813->2176|3842->2177|4597->2904|4626->2905|4655->2906|4694->2917|4723->2918|4752->2919|6154->4290
-                    LINES: 19->1|22->1|24->3|24->3|24->3|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|72->51|72->51|72->51|72->51|72->51|72->51|73->52|73->52|73->52|73->52|73->52|73->52|74->53|74->53|74->53|74->53|74->53|74->53|88->67|88->67|88->67|88->67|88->67|88->67|119->98
+                    HASH: 5b705389f7187b1fa885085f6b49d948d9d54acf
+                    MATRIX: 502->1|596->18|633->21|668->48|707->50|1353->668|1382->669|1411->670|1450->681|1479->682|1508->683|1537->684|1566->685|1595->686|1634->697|1663->698|1692->699|1722->701|1751->702|1780->703|1817->712|1846->713|1875->714|3165->1976|3194->1977|3223->1978|3263->1990|3292->1991|3321->1992|3387->2030|3416->2031|3445->2032|3523->2082|3552->2083|3581->2084|4691->3166|4720->3167|4749->3168|4788->3179|4817->3180|4846->3181|9121->7424
+                    LINES: 19->1|22->1|24->3|24->3|24->3|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|71->50|71->50|71->50|71->50|71->50|71->50|72->51|72->51|72->51|72->51|72->51|72->51|90->69|90->69|90->69|90->69|90->69|90->69|167->146
                     -- GENERATED --
                 */
             

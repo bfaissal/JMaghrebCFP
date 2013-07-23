@@ -6,8 +6,11 @@ import util.DBUtil
 
 object Application extends Controller {
 
-  def index = Action {
-    Ok(views.html.index("Salam ! Your new application is ready."))
+  def index = Action {  implicit request =>
+    if(session.get("name") == None )
+      Ok(views.html.index("Salam ! Your new application is ready."))
+    else
+      Redirect("/go")
   }
 
   def go = Action {

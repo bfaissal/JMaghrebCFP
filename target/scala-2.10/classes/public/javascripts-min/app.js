@@ -57,13 +57,21 @@ function talksController($scope,$resource){
         $scope.selected.status = 1;
         if(!$scope.edition)
             $scope.login.talks.push($scope.selected);
-        $scope.login.$save(function(){
-
-        });
+        $scope.login.$save();
         $scope.selected = {};
+        $scope.edition = false;
+        $scope.showFormVal = false;
+        $scope.submissionForm.$setPristine();
     }
     $scope.editaTrack = function(aTrack){
         $scope.selected = aTrack;
         $scope.edition = true;
+    }
+    $scope.submitTrack = function(aTrack){
+        aTrack.status = 2;
+        $scope.login.$save();
+    }
+    $scope.showForm = function(){
+        $scope.showFormVal = true;
     }
 }

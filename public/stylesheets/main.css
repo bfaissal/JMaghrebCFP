@@ -11,3 +11,8 @@
     -moz-transition: all .2s linear;
     transition: all .2s linear;
 }
+
+input.ng-invalid.ng-dirty,textarea.ng-invalid.ng-dirty {
+    border-color: #ff0000;
+    color: #ff0000;
+}

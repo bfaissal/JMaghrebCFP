@@ -99,40 +99,40 @@
                                     All fields are required
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">First Name</label>
+                                    <label class="control-label" for="fname">First Name</label>
                                     <div class="controls">
-                                        <input type="text" ng-required="true" ng-model="speaker.fname" class="input-xlarge">
+                                        <input type="text" id="fname" ng-required="true" ng-model="speaker.fname" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Last Name</label>
+                                    <label class="control-label" for="lname">Last Name</label>
                                     <div class="controls">
-                                        <input type="text" ng-model="speaker.lname" class="input-xlarge">
+                                        <input type="text" id="lname" ng-required="true" ng-model="speaker.lname" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Email</label>
+                                    <label class="control-label" for="email">Email</label>
                                     <div class="controls">
-                                        <input type="email" ng-required="true" required="true" ng-model="speaker._id" class="input-xlarge">
+                                        <input type="email" ng-required="true" id="email" required="true" ng-model="speaker._id" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Bio</label>
+                                    <label class="control-label" for="bio">Bio</label>
                                     <div class="controls">
-                                        <textarea rows="10" ng-maxlength="1000" ng-model="speaker.bio" ng-required="true" class="input-xxlarge"></textarea>
+                                        <textarea rows="10" id="bio" ng-maxlength="1000" ng-model="speaker.bio" ng-required="true" class="input-xxlarge"></textarea>
                                         <div>1000 char.</div>
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Password</label>
+                                    <label class="control-label" for="password">Password</label>
                                     <div class="controls">
-                                        <input type="password" ng-required="true" ng-model="speaker.password" class="input-xlarge">
+                                        <input type="password" id="password" ng-required="true" ng-model="speaker.password" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Confirm password</label>
+                                    <label class="control-label" for="cpassword">Confirm password</label>
                                     <div class="controls">
-                                        <input type="password" ng-required="true" ng-model="speaker.cpassword" class="input-xlarge">
+                                        <input type="password" id="cpassword" ng-required="true" ng-model="speaker.cpassword" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">

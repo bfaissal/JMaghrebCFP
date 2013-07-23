@@ -120,40 +120,40 @@ Seq[Any](format.raw/*1.19*/("""
                                     All fields are required
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">First Name</label>
+                                    <label class="control-label" for="fname">First Name</label>
                                     <div class="controls">
-                                        <input type="text" ng-required="true" ng-model="speaker.fname" class="input-xlarge">
+                                        <input type="text" id="fname" ng-required="true" ng-model="speaker.fname" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Last Name</label>
+                                    <label class="control-label" for="lname">Last Name</label>
                                     <div class="controls">
-                                        <input type="text" ng-model="speaker.lname" class="input-xlarge">
+                                        <input type="text" id="lname" ng-required="true" ng-model="speaker.lname" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Email</label>
+                                    <label class="control-label" for="email">Email</label>
                                     <div class="controls">
-                                        <input type="email" ng-required="true" required="true" ng-model="speaker._id" class="input-xlarge">
+                                        <input type="email" ng-required="true" id="email" required="true" ng-model="speaker._id" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Bio</label>
+                                    <label class="control-label" for="bio">Bio</label>
                                     <div class="controls">
-                                        <textarea rows="10" ng-maxlength="1000" ng-model="speaker.bio" ng-required="true" class="input-xxlarge"></textarea>
+                                        <textarea rows="10" id="bio" ng-maxlength="1000" ng-model="speaker.bio" ng-required="true" class="input-xxlarge"></textarea>
                                         <div>1000 char.</div>
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Password</label>
+                                    <label class="control-label" for="password">Password</label>
                                     <div class="controls">
-                                        <input type="password" ng-required="true" ng-model="speaker.password" class="input-xlarge">
+                                        <input type="password" id="password" ng-required="true" ng-model="speaker.password" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">Confirm password</label>
+                                    <label class="control-label" for="cpassword">Confirm password</label>
                                     <div class="controls">
-                                        <input type="password" ng-required="true" ng-model="speaker.cpassword" class="input-xlarge">
+                                        <input type="password" id="cpassword" ng-required="true" ng-model="speaker.cpassword" class="input-xlarge">
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -194,10 +194,10 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jul 22 17:28:09 EDT 2013
+                    DATE: Mon Jul 22 22:17:19 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/index.scala.html
-                    HASH: 886efd582ae1f5f1d9c0b98c7750eaec7b47586e
-                    MATRIX: 505->1|599->18|636->21|671->48|710->50|795->100|809->106|865->141|3242->2490|3271->2491|3300->2492|3339->2503|3368->2504|3397->2505|5632->4712|5661->4713|5690->4714|5729->4725|5758->4726|5787->4727|9580->8488
+                    HASH: d34edf01b9f68ee445f68e536c052805d788e964
+                    MATRIX: 505->1|599->18|636->21|671->48|710->50|795->100|809->106|865->141|3242->2490|3271->2491|3300->2492|3339->2503|3368->2504|3397->2505|5632->4712|5661->4713|5690->4714|5729->4725|5758->4726|5787->4727|9747->8655
                     LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|78->57|78->57|78->57|78->57|78->57|78->57|116->95|116->95|116->95|116->95|116->95|116->95|184->163
                     -- GENERATED --
                 */
