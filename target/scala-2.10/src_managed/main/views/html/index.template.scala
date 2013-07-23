@@ -194,7 +194,7 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jul 23 10:17:46 EDT 2013
+                    DATE: Tue Jul 23 11:54:38 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/index.scala.html
                     HASH: e712470d7e4b50471a16f32b0fe7bb06ca7d2281
                     MATRIX: 505->1|599->18|636->21|666->43|705->45|790->95|804->101|860->136|3237->2485|3266->2486|3295->2487|3334->2498|3363->2499|3392->2500|5627->4707|5656->4708|5685->4709|5724->4720|5753->4721|5782->4722|9742->8650
