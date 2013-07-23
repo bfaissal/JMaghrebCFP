@@ -21,7 +21,9 @@ object go extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.temp
 
 Seq[Any](format.raw/*1.19*/("""
 
-"""),_display_(Seq[Any](/*3.2*/main("JMaghreb Call For Paper")/*3.33*/ {_display_(Seq[Any](format.raw/*3.35*/("""
+"""),_display_(Seq[Any](/*3.2*/main("JMaghreb Call For Paper")/*3.33*/{_display_(Seq[Any](format.raw/*3.34*/("""
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    """)))}/*5.6*/{_display_(Seq[Any](format.raw/*5.7*/("""
     <div class="container" id="loginModal" ng-controller="talksController">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -33,7 +35,7 @@ Seq[Any](format.raw/*1.19*/("""
                         <span class="icon-bar"></span>
                     </button>
                     <a class="brand" id="brand" href="#">
-                        <span>"""),format.raw/*15.31*/("""{"""),format.raw/*15.32*/("""{"""),format.raw/*15.33*/("""login.lname"""),format.raw/*15.44*/("""}"""),format.raw/*15.45*/("""}"""),format.raw/*15.46*/(""" """),format.raw/*15.47*/("""{"""),format.raw/*15.48*/("""{"""),format.raw/*15.49*/("""login.fname"""),format.raw/*15.60*/("""}"""),format.raw/*15.61*/("""}"""),format.raw/*15.62*/(""" ("""),format.raw/*15.64*/("""{"""),format.raw/*15.65*/("""{"""),format.raw/*15.66*/("""login._id"""),format.raw/*15.75*/("""}"""),format.raw/*15.76*/("""}"""),format.raw/*15.77*/(""")</span>
+                        <span>"""),format.raw/*17.31*/("""{"""),format.raw/*17.32*/("""{"""),format.raw/*17.33*/("""login.lname"""),format.raw/*17.44*/("""}"""),format.raw/*17.45*/("""}"""),format.raw/*17.46*/(""" """),format.raw/*17.47*/("""{"""),format.raw/*17.48*/("""{"""),format.raw/*17.49*/("""login.fname"""),format.raw/*17.60*/("""}"""),format.raw/*17.61*/("""}"""),format.raw/*17.62*/(""" ("""),format.raw/*17.64*/("""{"""),format.raw/*17.65*/("""{"""),format.raw/*17.66*/("""login._id"""),format.raw/*17.75*/("""}"""),format.raw/*17.76*/("""}"""),format.raw/*17.77*/(""")</span>
                     </a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
@@ -68,8 +70,8 @@ Seq[Any](format.raw/*1.19*/("""
                     </thead>
                     <tbody>
                         <tr ng-repeat="aTrack in login.talks">
-                            <td>"""),format.raw/*50.33*/("""{"""),format.raw/*50.34*/("""{"""),format.raw/*50.35*/("""aTrack.title"""),format.raw/*50.47*/("""}"""),format.raw/*50.48*/("""}"""),format.raw/*50.49*/("""</td>
-                            <td>"""),format.raw/*51.33*/("""{"""),format.raw/*51.34*/("""{"""),format.raw/*51.35*/(""" aTrack.status == 2 ? 'Submitted' : 'In progress' """),format.raw/*51.85*/("""}"""),format.raw/*51.86*/("""}"""),format.raw/*51.87*/("""</td>
+                            <td>"""),format.raw/*52.33*/("""{"""),format.raw/*52.34*/("""{"""),format.raw/*52.35*/("""aTrack.title"""),format.raw/*52.47*/("""}"""),format.raw/*52.48*/("""}"""),format.raw/*52.49*/("""</td>
+                            <td>"""),format.raw/*53.33*/("""{"""),format.raw/*53.34*/("""{"""),format.raw/*53.35*/(""" aTrack.status == 2 ? 'Submitted' : 'In progress' """),format.raw/*53.85*/("""}"""),format.raw/*53.86*/("""}"""),format.raw/*53.87*/("""</td>
                             <td>
                                 <button class="btn" ng-click="editaTrack(aTrack)" ng-show="aTrack.status == 1" value="edit"><span class="icon-edit"></span> Edit</button>
                             </td>
@@ -87,7 +89,7 @@ Seq[Any](format.raw/*1.19*/("""
                         </div>
                         <div class="control-group" ng-show="message.msg != null">
                             <div class="alert" ng-class="message.type">
-                                """),format.raw/*69.33*/("""{"""),format.raw/*69.34*/("""{"""),format.raw/*69.35*/("""message.msg"""),format.raw/*69.46*/("""}"""),format.raw/*69.47*/("""}"""),format.raw/*69.48*/("""
+                                """),format.raw/*71.33*/("""{"""),format.raw/*71.34*/("""{"""),format.raw/*71.35*/("""message.msg"""),format.raw/*71.46*/("""}"""),format.raw/*71.47*/("""}"""),format.raw/*71.48*/("""
                             </div>
                         </div>
                         <div class="control-group">
@@ -164,7 +166,7 @@ Seq[Any](format.raw/*1.19*/("""
             </div>
         </div>
     </div>
-""")))})),format.raw/*146.2*/("""
+""")))})),format.raw/*148.2*/("""
 """))}
     }
     
@@ -177,11 +179,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jul 23 11:54:38 EDT 2013
+                    DATE: Tue Jul 23 14:34:22 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/go.scala.html
-                    HASH: 40592c68adfc733878b2cd8e68389d64170bf725
-                    MATRIX: 502->1|596->18|633->21|672->52|711->54|1357->672|1386->673|1415->674|1454->685|1483->686|1512->687|1541->688|1570->689|1599->690|1638->701|1667->702|1696->703|1726->705|1755->706|1784->707|1821->716|1850->717|1879->718|3169->1980|3198->1981|3227->1982|3267->1994|3296->1995|3325->1996|3391->2034|3420->2035|3449->2036|3527->2086|3556->2087|3585->2088|4695->3170|4724->3171|4753->3172|4792->3183|4821->3184|4850->3185|9125->7428
-                    LINES: 19->1|22->1|24->3|24->3|24->3|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|36->15|71->50|71->50|71->50|71->50|71->50|71->50|72->51|72->51|72->51|72->51|72->51|72->51|90->69|90->69|90->69|90->69|90->69|90->69|167->146
+                    HASH: 21dd9073fdcb8d7316296195854928a9e8a6cc3b
+                    MATRIX: 502->1|596->18|633->21|672->52|710->53|808->134|845->135|1491->753|1520->754|1549->755|1588->766|1617->767|1646->768|1675->769|1704->770|1733->771|1772->782|1801->783|1830->784|1860->786|1889->787|1918->788|1955->797|1984->798|2013->799|3303->2061|3332->2062|3361->2063|3401->2075|3430->2076|3459->2077|3525->2115|3554->2116|3583->2117|3661->2167|3690->2168|3719->2169|4829->3251|4858->3252|4887->3253|4926->3264|4955->3265|4984->3266|9259->7509
+                    LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|73->52|73->52|73->52|73->52|73->52|73->52|74->53|74->53|74->53|74->53|74->53|74->53|92->71|92->71|92->71|92->71|92->71|92->71|169->148
                     -- GENERATED --
                 */
             

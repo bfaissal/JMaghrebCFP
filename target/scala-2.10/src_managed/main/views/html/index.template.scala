@@ -23,6 +23,7 @@ Seq[Any](format.raw/*1.19*/("""
 
 """),_display_(Seq[Any](/*3.2*/main("Login register")/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
     <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*4.50*/routes/*4.56*/.Assets.at("stylesheets/style.css"))),format.raw/*4.91*/("""">
+""")))}/*5.2*/{_display_(Seq[Any](format.raw/*5.3*/("""
     <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
         <div class="effect_2 padding_slide1">
             <div class="container clearfix">
@@ -53,7 +54,7 @@ Seq[Any](format.raw/*1.19*/("""
 
     </div>
 
-    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 
     <div class="container" id="loginModal">
@@ -75,7 +76,7 @@ Seq[Any](format.raw/*1.19*/("""
                                 </div>
                                 <div class="control-group" ng-show="message.msg != null">
                                     <div class="alert" ng-class="message.type">
-                                        """),format.raw/*57.41*/("""{"""),format.raw/*57.42*/("""{"""),format.raw/*57.43*/("""message.msg"""),format.raw/*57.54*/("""}"""),format.raw/*57.55*/("""}"""),format.raw/*57.56*/("""
+                                        """),format.raw/*58.41*/("""{"""),format.raw/*58.42*/("""{"""),format.raw/*58.43*/("""message.msg"""),format.raw/*58.54*/("""}"""),format.raw/*58.55*/("""}"""),format.raw/*58.56*/("""
                                     </div>
                                 </div>
 
@@ -113,7 +114,7 @@ Seq[Any](format.raw/*1.19*/("""
                                 </div>
                                 <div class="control-group" ng-show="message.msg != null">
                                     <div class="alert" ng-class="message.type">
-                                        """),format.raw/*95.41*/("""{"""),format.raw/*95.42*/("""{"""),format.raw/*95.43*/("""message.msg"""),format.raw/*95.54*/("""}"""),format.raw/*95.55*/("""}"""),format.raw/*95.56*/("""
+                                        """),format.raw/*96.41*/("""{"""),format.raw/*96.42*/("""{"""),format.raw/*96.43*/("""message.msg"""),format.raw/*96.54*/("""}"""),format.raw/*96.55*/("""}"""),format.raw/*96.56*/("""
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -181,7 +182,7 @@ Seq[Any](format.raw/*1.19*/("""
     </div>
 
 
-""")))})),format.raw/*163.2*/("""
+""")))})),format.raw/*164.2*/("""
 """))}
     }
     
@@ -194,11 +195,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jul 23 11:54:38 EDT 2013
+                    DATE: Tue Jul 23 14:34:22 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/index.scala.html
-                    HASH: e712470d7e4b50471a16f32b0fe7bb06ca7d2281
-                    MATRIX: 505->1|599->18|636->21|666->43|705->45|790->95|804->101|860->136|3237->2485|3266->2486|3295->2487|3334->2498|3363->2499|3392->2500|5627->4707|5656->4708|5685->4709|5724->4720|5753->4721|5782->4722|9742->8650
-                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|78->57|78->57|78->57|78->57|78->57|78->57|116->95|116->95|116->95|116->95|116->95|116->95|184->163
+                    HASH: 9516602eb3e63b454c7595a0949d01fb70f198c8
+                    MATRIX: 505->1|599->18|636->21|666->43|705->45|790->95|804->101|860->136|881->140|918->141|3295->2490|3324->2491|3353->2492|3392->2503|3421->2504|3450->2505|5685->4712|5714->4713|5743->4714|5782->4725|5811->4726|5840->4727|9800->8655
+                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|26->5|26->5|79->58|79->58|79->58|79->58|79->58|79->58|117->96|117->96|117->96|117->96|117->96|117->96|185->164
                     -- GENERATED --
                 */
             
