@@ -21,7 +21,7 @@ object index extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.t
 
 Seq[Any](format.raw/*1.19*/("""
 
-"""),_display_(Seq[Any](/*3.2*/main("Welcome to Play 2.1")/*3.29*/ {_display_(Seq[Any](format.raw/*3.31*/("""
+"""),_display_(Seq[Any](/*3.2*/main("Login register")/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
     <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*4.50*/routes/*4.56*/.Assets.at("stylesheets/style.css"))),format.raw/*4.91*/("""">
     <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
         <div class="effect_2 padding_slide1">
@@ -194,10 +194,10 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jul 22 22:20:28 EDT 2013
+                    DATE: Tue Jul 23 10:17:46 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/index.scala.html
-                    HASH: d34edf01b9f68ee445f68e536c052805d788e964
-                    MATRIX: 505->1|599->18|636->21|671->48|710->50|795->100|809->106|865->141|3242->2490|3271->2491|3300->2492|3339->2503|3368->2504|3397->2505|5632->4712|5661->4713|5690->4714|5729->4725|5758->4726|5787->4727|9747->8655
+                    HASH: e712470d7e4b50471a16f32b0fe7bb06ca7d2281
+                    MATRIX: 505->1|599->18|636->21|666->43|705->45|790->95|804->101|860->136|3237->2485|3266->2486|3295->2487|3334->2498|3363->2499|3392->2500|5627->4707|5656->4708|5685->4709|5724->4720|5753->4721|5782->4722|9742->8650
                     LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|78->57|78->57|78->57|78->57|78->57|78->57|116->95|116->95|116->95|116->95|116->95|116->95|184->163
                     -- GENERATED --
                 */
