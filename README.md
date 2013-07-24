@@ -10,7 +10,6 @@ To be able to run this application you need to have:
 
 * MongoDB installed and running (required)
 
-
 Setup
 -----
 1)clone the project from this github repository
