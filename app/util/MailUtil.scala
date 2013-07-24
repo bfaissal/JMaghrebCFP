@@ -12,7 +12,7 @@ import play.api.libs.concurrent.Execution.Implicits._
  */
 object MailUtil {
       def send(to: String, subject : String, body: String, fname: String){
-        println("gmpwd ::::::> "+System.getenv("gmpwd"))
+        try{
         WS.url("https://sendgrid.com/api/mail.send.json?" +
           "api_user="+java.net.URLEncoder.encode(System.getenv("OPENSHIFT_GRID_MAIL_USER"),"UTF-8")+
           "&api_key="+java.net.URLEncoder.encode(System.getenv("OPENSHIFT_GRID_MAIL_password"),"UTF-8")+
@@ -20,6 +20,10 @@ object MailUtil {
           "&toname="+java.net.URLEncoder.encode(fname ,"UTF-8")+
           "&subject="+ java.net.URLEncoder.encode(subject,"UTF-8")+
           "&from=info@moroccojug.org" +
-          "&html="+java.net.URLEncoder.encode(body,"UTF-8")).get().map(response => println("=========> "+response.json.as[String]))
+          "&html="+java.net.URLEncoder.encode(body,"UTF-8")).get
+        }
+        catch {
+          case e => println("Email not sent")
+        }
       }
 }
