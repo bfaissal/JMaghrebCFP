@@ -12,7 +12,7 @@ import play.api.libs.concurrent.Execution.Implicits._
  */
 object MailUtil {
       def send(to: String, subject : String, body: String, fname: String){
-        println(" ::::::> "+System.getenv("OPENSHIFT_GRID_MAIL_USER"))
+        println("OPENSHIFT_GRID_MAIL_USER ::::::> "+System.getenv("OPENSHIFT_GRID_MAIL_USER"))
         WS.url("https://sendgrid.com/api/mail.send.json?" +
           "api_user="+java.net.URLEncoder.encode(System.getenv("OPENSHIFT_GRID_MAIL_USER"),"UTF-8")+
           "&api_key="+java.net.URLEncoder.encode(System.getenv("OPENSHIFT_GRID_MAIL_password"),"UTF-8")+
