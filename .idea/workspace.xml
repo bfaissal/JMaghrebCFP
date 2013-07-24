@@ -24,7 +24,7 @@
     <file path="/main.css" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374543323694" ignored="false" />
     <file path="/DBUtil.java" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374502931662" ignored="false" />
     <file path="$PROJECT_DIR$/target/scala-2.10/jmaghrebcfp_2.10-1.0-SNAPSHOT.pom" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374605879762" ignored="false" />
-    <file path="/MailUtil.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374629616468" ignored="false" />
+    <file path="/MailUtil.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374630749658" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +131,7 @@
       <file leaf-file-name="MailUtil.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/util/MailUtil.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="41" selection-start="394" selection-end="394" vertical-scroll-proportion="0.33854166">
+            <state line="14" column="22" selection-start="375" selection-end="375" vertical-scroll-proportion="0.33854166">
               <folding />
             </state>
           </provider>
@@ -741,7 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/MailUtil.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="41" selection-start="394" selection-end="394" vertical-scroll-proportion="0.33854166">
+        <state line="14" column="22" selection-start="375" selection-end="375" vertical-scroll-proportion="0.33854166">
           <folding />
         </state>
       </provider>
