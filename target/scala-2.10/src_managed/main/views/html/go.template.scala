@@ -116,7 +116,7 @@ Seq[Any](format.raw/*1.19*/("""
                                 <!-- Abstract-->
                             <label class="control-label" for="type">Abstract</label>
                             <div class="controls">
-                                <select name="type" id="type" class="input-xxlarge" ng-model="selected.type">
+                                <select name="type" id="type" ng-required="true" class="input-xxlarge" ng-model="selected.type">
                                     <option value="0">Architecture and Security</option>
                                     <option value="3">Cloud &amp; BigData</option>
                                     <option value="7">Future&lt;Devoxx&gt;</option>
@@ -134,7 +134,7 @@ Seq[Any](format.raw/*1.19*/("""
                                 <!-- Abstract-->
                             <label class="control-label" for="language">Audience Experience</label>
                             <div class="controls">
-                                <select name="language" id="language" class="input-xxlarge" ng-model="selected.level">
+                                <select name="language" id="language" ng-required="true" class="input-xxlarge" ng-model="selected.level">
                                     <option value="1">Novice</option>
                                     <option value="2">Senior</option>
                                     <option value="3">Expert</option>
@@ -181,10 +181,10 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Jul 25 01:03:12 EDT 2013
+                    DATE: Thu Jul 25 01:16:25 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/go.scala.html
-                    HASH: 78ad8d5834ccb65e2bacc5a33a8a674836d5976c
-                    MATRIX: 502->1|596->18|633->21|672->52|710->53|808->134|845->135|1491->753|1520->754|1549->755|1588->766|1617->767|1646->768|1675->769|1704->770|1733->771|1772->782|1801->783|1830->784|1860->786|1889->787|1918->788|1955->797|1984->798|2013->799|3303->2061|3332->2062|3361->2063|3401->2075|3430->2076|3459->2077|3525->2115|3554->2116|3583->2117|3661->2167|3690->2168|3719->2169|4829->3251|4858->3252|4887->3253|4926->3264|4955->3265|4984->3266|9367->7617
+                    HASH: abf6e9f90a8a2f22a801c28cc9d6113fc3cd6ee5
+                    MATRIX: 502->1|596->18|633->21|672->52|710->53|808->134|845->135|1491->753|1520->754|1549->755|1588->766|1617->767|1646->768|1675->769|1704->770|1733->771|1772->782|1801->783|1830->784|1860->786|1889->787|1918->788|1955->797|1984->798|2013->799|3303->2061|3332->2062|3361->2063|3401->2075|3430->2076|3459->2077|3525->2115|3554->2116|3583->2117|3661->2167|3690->2168|3719->2169|4829->3251|4858->3252|4887->3253|4926->3264|4955->3265|4984->3266|9405->7655
                     LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|73->52|73->52|73->52|73->52|73->52|73->52|74->53|74->53|74->53|74->53|74->53|74->53|92->71|92->71|92->71|92->71|92->71|92->71|171->150
                     -- GENERATED --
                 */

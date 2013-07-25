@@ -13,14 +13,14 @@
     <file path="/Build.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372610182452" ignored="false" />
     <file path="/DBUtil.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374605129384" ignored="false" />
     <file path="$USER_HOME$/work/play/formBuilder/app/controllers/Application.java" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372646118608" ignored="false" />
-    <file path="/app.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374729031098" ignored="false" />
+    <file path="/app.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374729206296" ignored="false" />
     <file path="$PROJECT_DIR$/../LearnScala2/src/scala/lear/part1/SalamScala.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372811978088" ignored="false" />
     <file path="/SalamScala.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372811961637" ignored="false" />
     <file path="/main.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372816003883" ignored="false" />
     <file path="$PROJECT_DIR$/../playAndRequireJs/public/javascripts/main.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372817516070" ignored="false" />
     <file path="$PROJECT_DIR$/../playAndRequireJs/public/javascripts/helper/helper.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372817488861" ignored="false" />
     <file path="/helper.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372817488861" ignored="false" />
-    <file path="/go.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374728591372" ignored="false" />
+    <file path="/go.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374729384265" ignored="false" />
     <file path="/main.css" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374543323694" ignored="false" />
     <file path="/DBUtil.java" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374502931662" ignored="false" />
     <file path="$PROJECT_DIR$/target/scala-2.10/jmaghrebcfp_2.10-1.0-SNAPSHOT.pom" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374605879762" ignored="false" />
@@ -28,7 +28,7 @@
     <file path="/README.md" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374682886749" ignored="false" />
     <file path="/Global.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374707561550" ignored="false" />
     <file path="/fragment.java" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374704818398" ignored="false" />
-    <file path="/profile.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374728349881" ignored="false" />
+    <file path="/profile.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374729263677" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,19 +125,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="39" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.713073">
+            <state line="72" column="43" selection-start="2241" selection-end="2241" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="go.scala.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="go.scala.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/go.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="97" selection-start="7220" selection-end="7220" vertical-scroll-proportion="-10.5">
+            <state line="97" column="80" selection-start="4812" selection-end="4812" vertical-scroll-proportion="0.26630434">
               <folding />
             </state>
           </provider>
@@ -164,7 +164,7 @@
       <file leaf-file-name="profile.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/profile.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="40" selection-start="4303" selection-end="4303" vertical-scroll-proportion="-3.68">
+            <state line="86" column="95" selection-start="4382" selection-end="4382" vertical-scroll-proportion="-3.28">
               <folding />
             </state>
           </provider>
@@ -202,9 +202,9 @@
         <option value="$PROJECT_DIR$/app/controllers/Application.scala" />
         <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/Global.scala" />
+        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/app/views/profile.scala.html" />
         <option value="$PROJECT_DIR$/app/views/go.scala.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
       </list>
     </option>
   </component>
@@ -741,13 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/profile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="40" selection-start="4303" selection-end="4303" vertical-scroll-proportion="-3.68">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="149" column="31" selection-start="4143" selection-end="8288" vertical-scroll-proportion="-10.0">
@@ -755,16 +748,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/go.scala.html">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="97" selection-start="7220" selection-end="7220" vertical-scroll-proportion="-10.5">
+        <state line="72" column="43" selection-start="2241" selection-end="2241" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
+    <entry file="file://$PROJECT_DIR$/app/views/profile.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="39" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.713073">
+        <state line="86" column="95" selection-start="4382" selection-end="4382" vertical-scroll-proportion="-3.28">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/go.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="80" selection-start="4812" selection-end="4812" vertical-scroll-proportion="0.26630434">
           <folding />
         </state>
       </provider>

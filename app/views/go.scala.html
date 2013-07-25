@@ -95,7 +95,7 @@
                                 <!-- Abstract-->
                             <label class="control-label" for="type">Abstract</label>
                             <div class="controls">
-                                <select name="type" id="type" class="input-xxlarge" ng-model="selected.type">
+                                <select name="type" id="type" ng-required="true" class="input-xxlarge" ng-model="selected.type">
                                     <option value="0">Architecture and Security</option>
                                     <option value="3">Cloud &amp; BigData</option>
                                     <option value="7">Future&lt;Devoxx&gt;</option>
@@ -113,7 +113,7 @@
                                 <!-- Abstract-->
                             <label class="control-label" for="language">Audience Experience</label>
                             <div class="controls">
-                                <select name="language" id="language" class="input-xxlarge" ng-model="selected.level">
+                                <select name="language" id="language" ng-required="true" class="input-xxlarge" ng-model="selected.level">
                                     <option value="1">Novice</option>
                                     <option value="2">Senior</option>
                                     <option value="3">Expert</option>

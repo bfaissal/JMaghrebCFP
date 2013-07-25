@@ -1,8 +1,8 @@
 @(message: String)
 
-@main("JMaghreb Call For Paper"){
+@main("JMaghreb Call For Paper") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    }{
+} {
     <div class="container" id="loginModal" ng-controller="talksController">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -78,12 +78,13 @@
                                 <div>1000 char.</div>
                             </div>
                         </div>
-                        
+
                         <div class="control-group">
 
                             <div class="controls">
                                 <button class="btn" ng-disabled="registration.$invalid || (login.password != login.cpassword)" ng-click="editAccounte()">
                                     Save</button>
+                                <button class="btn btn-danger" ng-click="cancelEditAccounte()">Cancel</button>
                             </div>
                         </div>
                     </fieldset>

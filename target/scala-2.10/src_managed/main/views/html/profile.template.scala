@@ -21,9 +21,9 @@ object profile extends BaseScalaTemplate[play.api.templates.Html,Format[play.api
 
 Seq[Any](format.raw/*1.19*/("""
 
-"""),_display_(Seq[Any](/*3.2*/main("JMaghreb Call For Paper")/*3.33*/{_display_(Seq[Any](format.raw/*3.34*/("""
+"""),_display_(Seq[Any](/*3.2*/main("JMaghreb Call For Paper")/*3.33*/ {_display_(Seq[Any](format.raw/*3.35*/("""
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    """)))}/*5.6*/{_display_(Seq[Any](format.raw/*5.7*/("""
+""")))}/*5.2*/ {_display_(Seq[Any](format.raw/*5.4*/("""
     <div class="container" id="loginModal" ng-controller="talksController">
 
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -99,12 +99,13 @@ Seq[Any](format.raw/*1.19*/("""
                                 <div>1000 char.</div>
                             </div>
                         </div>
-                        
+
                         <div class="control-group">
 
                             <div class="controls">
                                 <button class="btn" ng-disabled="registration.$invalid || (login.password != login.cpassword)" ng-click="editAccounte()">
                                     Save</button>
+                                <button class="btn btn-danger" ng-click="cancelEditAccounte()">Cancel</button>
                             </div>
                         </div>
                     </fieldset>
@@ -116,7 +117,7 @@ Seq[Any](format.raw/*1.19*/("""
         </div>
 
     </div>
-""")))})),format.raw/*98.2*/("""
+""")))})),format.raw/*99.2*/("""
 """))}
     }
     
@@ -129,11 +130,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Jul 25 00:59:13 EDT 2013
+                    DATE: Thu Jul 25 01:14:39 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/profile.scala.html
-                    HASH: edce446c5ca5fe0cca05366cc1019366f63738e0
-                    MATRIX: 507->1|601->18|638->21|677->52|715->53|813->134|850->135|1496->753|1525->754|1554->755|1593->766|1622->767|1651->768|1680->769|1709->770|1738->771|1777->782|1806->783|1835->784|1865->786|1894->787|1923->788|1960->797|1989->798|2018->799|3395->2148|3424->2149|3453->2150|3492->2161|3521->2162|3550->2163|5954->4536
-                    LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|71->50|71->50|71->50|71->50|71->50|71->50|119->98
+                    HASH: a3c7dbd935ff8ef59a126ffb0cccca4bb820dcd0
+                    MATRIX: 507->1|601->18|638->21|677->52|716->54|810->131|848->133|1494->751|1523->752|1552->753|1591->764|1620->765|1649->766|1678->767|1707->768|1736->769|1775->780|1804->781|1833->782|1863->784|1892->785|1921->786|1958->795|1987->796|2016->797|3393->2146|3422->2147|3451->2148|3490->2159|3519->2160|3548->2161|6039->4621
+                    LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|71->50|71->50|71->50|71->50|71->50|71->50|120->99
                     -- GENERATED --
                 */
             

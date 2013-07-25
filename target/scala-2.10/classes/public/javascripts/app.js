@@ -68,6 +68,10 @@ function talksController($scope,$resource){
         $scope.showFormVal = false;
         $scope.submissionForm.$setPristine();
     }
+    $scope.cancelEditAccounte = function(){
+        $scope.login.$logIn();
+        $scope.registration.$setPristine();
+    }
     $scope.editAccounte = function (){
         $scope.login.$save(function(u){
             $scope.message = {msg : "Account edited",type:'alert-success'}
