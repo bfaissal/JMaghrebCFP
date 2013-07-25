@@ -23,7 +23,7 @@ Setup
     export OPENSHIFT_MONGODB_DB_PORT="YOUR_MONDO_DB_PORT"
     export OPENSHIFT_MONGODB_DB_PASSWORD="PASSWORD USED FOR THE USER admin"
     
-if you have a mail grid account, wich you want use to send notificatoins you can  define those variables ( optional):
+if you have a mail grid account, wich you want use in order to send notificatoins, you can  define those variables ( optional):
 
     export OPENSHIFT_GRID_MAIL_USER="MAIL GRID USER NAME"
     export OPENSHIFT_GRID_MAIL_password="MAIL GRID PASSWORD"
