@@ -2,10 +2,9 @@ package controllers
 
 import play.api.mvc._
 import com.mongodb.casbah.Imports._
-import play.api.libs.ws.WS
 import util.{MailUtil, DBUtil}
-import scala.util.Random
-import play.api.libs.json.Json
+
+import play.api.libs.json.{JsObject, JsNull, Json}
 
 object Application extends Controller {
 
@@ -62,8 +61,11 @@ object Application extends Controller {
       try {
         request.body.asJson.map {
           json => {
-            Json.
-            var resultJson = json ++ Json.obj("activationCode" -> "aleatoir")
+            //println(FunctionUtil.randomString(10) )
+            var resultJson = (json,Json.obj("activationCode" -> "aleatoir")) match {
+              case (a:JsObject,b:JsObject) =>  a++b
+              case _ => JsNull
+            }
             if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
             else {
               DBUtil.speakers += (com.mongodb.util.JSON.parse(resultJson.toString())
@@ -78,7 +80,7 @@ object Application extends Controller {
         }.getOrElse(BadRequest("Error"))
       }
       catch {
-        case e =>  InternalServerError("{\"message\":\"Dublicate username ;)\"}").as(JSON)
+        case e =>  InternalServerError("{\"message\":\"Dublicate username ;)\",\"exception\":\""+e.getMessage+"\"}").as(JSON)
       }
   }
 
