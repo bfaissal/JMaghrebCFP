@@ -4,12 +4,13 @@ import play.api.mvc._
 import com.mongodb.casbah.Imports._
 import play.api.libs.ws.WS
 import util.{MailUtil, DBUtil}
+import scala.util.Random
 
 object Application extends Controller {
 
   def index = Action {  implicit request =>
     if(session.get("name") == None )
-      Ok(views.html.index("Salam ! Your new application is ready."))
+      Ok(views.html.index("JMaghre CFP"))
     else
       Redirect("/go")
   }
@@ -17,8 +18,15 @@ object Application extends Controller {
   def go = Action {
     implicit request => {
       session.get("name").map {
-        _ => Ok(views.html.go("Salam ! Your new application is ready."))
-      }.getOrElse(Unauthorized("Your not allowed to access this section"))
+        _ => Ok(views.html.go("JMaghre CFP"))
+      }.getOrElse(Redirect("/"))
+    }
+  }
+  def profile = Action {
+    implicit request => {
+      session.get("name").map {
+        _ => Ok(views.html.profile("JMaghre CFP"))
+      }.getOrElse(Redirect("/"))
     }
   }
 
@@ -68,7 +76,7 @@ object Application extends Controller {
         }.getOrElse(BadRequest("Error"))
       }
       catch {
-        case e => {e.printStackTrace(); InternalServerError("{\"message\":\"Dublicate username ;)\"}").as(JSON)}
+        case e =>  InternalServerError("{\"message\":\"Dublicate username ;)\"}").as(JSON)
       }
   }
 

@@ -2,6 +2,7 @@ package util
 
 import play.api.libs.ws.WS
 import play.api.libs.concurrent.Execution.Implicits._
+import play.api.Logger
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,7 +24,7 @@ object MailUtil {
           "&html="+java.net.URLEncoder.encode(body,"UTF-8")).get
         }
         catch {
-          case e => println("Email not sent")
+          case e => Logger.info("Email not sent")
         }
       }
 }

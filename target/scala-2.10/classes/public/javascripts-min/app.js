@@ -64,6 +64,14 @@ function talksController($scope,$resource){
         $scope.showFormVal = false;
         $scope.submissionForm.$setPristine();
     }
+    $scope.editAccounte = function (){
+        $scope.login.$save(function(u){
+            $scope.message = {msg : "Account edited",type:'alert-success'}
+            $scope.registration.$setPristine();
+        },function(u){
+            $scope.message = {msg : u.data.message,type:'alert-error'}
+        });
+    }
     $scope.editaTrack = function(aTrack){
         $scope.selected = aTrack;
         $scope.edition = true;

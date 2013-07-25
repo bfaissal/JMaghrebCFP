@@ -133,6 +133,7 @@
                                 <!-- Button -->
                             <div class="controls">
                                 <button class="btn" ng-disabled="submissionForm.$invalid" ng-click="addTalk()">Save</button>
+                                <button class="btn btn-danger"  ng-click="cancelAddTalk()">Cancel</button>
                             </div>
                         </div>
                     </fieldset>
@@ -142,6 +143,7 @@
         <div class="row" ng-show="!edition && !showFormVal">
             <div class="span12">
                 <button class="btn btn-primary" ng-click="showForm()">Add a talk</button>
+
             </div>
         </div>
     </div>

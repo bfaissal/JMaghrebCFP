@@ -1,6 +1,6 @@
 // @SOURCE:/Users/faissalboutaounte/Sites/JMaghrebCFP/conf/routes
-// @HASH:49d2673ef7402232a411464f4d890eb9e6ee5d41
-// @DATE:Tue Jul 23 22:10:58 EDT 2013
+// @HASH:37b8e7887d2299514089a7da8b69f6b20a2dff5f
+// @DATE:Thu Jul 25 00:55:38 EDT 2013
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,7 +13,8 @@ import play.api.mvc._
 import Router.queryString
 
 
-// @LINE:14
+// @LINE:15
+// @LINE:13
 // @LINE:12
 // @LINE:11
 // @LINE:10
@@ -23,6 +24,7 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
+// @LINE:13
 // @LINE:12
 // @LINE:11
 // @LINE:10
@@ -39,25 +41,31 @@ def go(): Call = {
 }
                                                 
 
-// @LINE:8
+// @LINE:9
 def login(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "login")
 }
                                                 
 
-// @LINE:9
+// @LINE:10
 def logout(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "logout")
 }
                                                 
 
-// @LINE:12
+// @LINE:13
 def editSpeaker(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "speaker")
 }
                                                 
 
-// @LINE:11
+// @LINE:8
+def profile(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "profile")
+}
+                                                
+
+// @LINE:12
 def createSpeaker(): Call = {
    Call("PUT", _prefix + { _defaultPrefix } + "speaker")
 }
@@ -69,7 +77,7 @@ def index(): Call = {
 }
                                                 
 
-// @LINE:10
+// @LINE:11
 def getSpeaker(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "speaker")
 }
@@ -78,11 +86,11 @@ def getSpeaker(): Call = {
 }
                           
 
-// @LINE:14
+// @LINE:15
 class ReverseAssets {
     
 
-// @LINE:14
+// @LINE:15
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -94,7 +102,8 @@ def at(file:String): Call = {
                   
 
 
-// @LINE:14
+// @LINE:15
+// @LINE:13
 // @LINE:12
 // @LINE:11
 // @LINE:10
@@ -104,6 +113,7 @@ def at(file:String): Call = {
 // @LINE:6
 package controllers.javascript {
 
+// @LINE:13
 // @LINE:12
 // @LINE:11
 // @LINE:10
@@ -125,7 +135,7 @@ def go : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:8
+// @LINE:9
 def login : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.login",
    """
@@ -136,7 +146,7 @@ def login : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:9
+// @LINE:10
 def logout : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.logout",
    """
@@ -147,7 +157,7 @@ def logout : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:12
+// @LINE:13
 def editSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.editSpeaker",
    """
@@ -158,7 +168,18 @@ def editSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:11
+// @LINE:8
+def profile : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.profile",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "profile"})
+      }
+   """
+)
+                        
+
+// @LINE:12
 def createSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.createSpeaker",
    """
@@ -180,7 +201,7 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:10
+// @LINE:11
 def getSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.getSpeaker",
    """
@@ -194,11 +215,11 @@ def getSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:14
+// @LINE:15
 class ReverseAssets {
     
 
-// @LINE:14
+// @LINE:15
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -215,7 +236,8 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:14
+// @LINE:15
+// @LINE:13
 // @LINE:12
 // @LINE:11
 // @LINE:10
@@ -225,6 +247,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:6
 package controllers.ref {
 
+// @LINE:13
 // @LINE:12
 // @LINE:11
 // @LINE:10
@@ -241,25 +264,31 @@ def go(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:8
+// @LINE:9
 def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq(), "POST", """""", _prefix + """login""")
 )
                       
 
-// @LINE:9
+// @LINE:10
 def logout(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.logout(), HandlerDef(this, "controllers.Application", "logout", Seq(), "GET", """""", _prefix + """logout""")
 )
                       
 
-// @LINE:12
+// @LINE:13
 def editSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.editSpeaker(), HandlerDef(this, "controllers.Application", "editSpeaker", Seq(), "POST", """""", _prefix + """speaker""")
 )
                       
 
-// @LINE:11
+// @LINE:8
+def profile(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.profile(), HandlerDef(this, "controllers.Application", "profile", Seq(), "GET", """""", _prefix + """profile""")
+)
+                      
+
+// @LINE:12
 def createSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.createSpeaker(), HandlerDef(this, "controllers.Application", "createSpeaker", Seq(), "PUT", """""", _prefix + """speaker""")
 )
@@ -271,7 +300,7 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:10
+// @LINE:11
 def getSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.getSpeaker(), HandlerDef(this, "controllers.Application", "getSpeaker", Seq(), "GET", """""", _prefix + """speaker""")
 )
@@ -280,11 +309,11 @@ def getSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:14
+// @LINE:15
 class ReverseAssets {
     
 
-// @LINE:14
+// @LINE:15
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )

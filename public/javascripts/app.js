@@ -47,10 +47,14 @@ function talksController($scope,$resource){
             save: {method: 'POST'}
         });
     $scope.login = new Login();
-    $scope.login.$logIn(function(){
-
-    });
-
+    $scope.login.$logIn();
+    $scope.cancelAddTalk = function(){
+        $scope.login.$logIn(function(){
+            $scope.edition = false;
+            $scope.showFormVal = false;
+            $scope.submissionForm.$setPristine();
+        });
+    }
     $scope.addTalk = function(){
         if($scope.login.talks == undefined){
             $scope.login.talks = [];
@@ -63,6 +67,14 @@ function talksController($scope,$resource){
         $scope.edition = false;
         $scope.showFormVal = false;
         $scope.submissionForm.$setPristine();
+    }
+    $scope.editAccounte = function (){
+        $scope.login.$save(function(u){
+            $scope.message = {msg : "Account edited",type:'alert-success'}
+            $scope.registration.$setPristine();
+        },function(u){
+            $scope.message = {msg : u.data.message,type:'alert-error'}
+        });
     }
     $scope.editaTrack = function(aTrack){
         $scope.selected = aTrack;
