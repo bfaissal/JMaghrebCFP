@@ -5,6 +5,7 @@ import com.mongodb.casbah.Imports._
 import play.api.libs.ws.WS
 import util.{MailUtil, DBUtil}
 import scala.util.Random
+import play.api.libs.json.Json
 
 object Application extends Controller {
 
@@ -61,10 +62,11 @@ object Application extends Controller {
       try {
         request.body.asJson.map {
           json => {
-
+            Json.
+            var resultJson = json ++ Json.obj("activationCode" -> "aleatoir")
             if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
             else {
-              DBUtil.speakers += (com.mongodb.util.JSON.parse(json.toString())
+              DBUtil.speakers += (com.mongodb.util.JSON.parse(resultJson.toString())
               match {
                 case x: DBObject => x;
                 case _ => throw new ClassCastException
