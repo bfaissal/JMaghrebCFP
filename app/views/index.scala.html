@@ -44,6 +44,7 @@
             <div>
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+                    <li><a href="#resetPassword" data-toggle="tab">Reset Password</a></li>
                     <li><a href="#create" data-toggle="tab">Create Account</a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
@@ -63,7 +64,7 @@
                                         <!-- Username -->
                                     <label class="control-label" for="username" >Username</label>
                                     <div class="controls">
-                                        <input type="text" id="username" name="username" ng-model="login._id" placeholder="" class="input-xlarge">
+                                        <input type="email" id="username" name="username"  ng-model="login._id" placeholder="" class="input-xlarge">
                                     </div>
                                 </div>
 
@@ -80,6 +81,35 @@
                                         <!-- Button -->
                                     <div class="controls">
                                         <button class="btn" ng-click="doLogin()">Login</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="resetPassword">
+                        <form class="form-horizontal" name="resetPasswordForm" action='' method="POST" ng-controller="loginController" novalidate>
+                            <fieldset>
+                                <div id="legend">
+                                    <legend class="">Reset Password</legend>
+                                </div>
+                                <div class="control-group" ng-show="message.msg != null">
+                                    <div class="alert" ng-class="message.type">
+                                        {{message.msg}}
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                        <!-- Username -->
+                                    <label class="control-label" for="usernamep" >Username</label>
+                                    <div class="controls">
+                                        <input type="email" id="usernamep" ng-required="true" name="username" ng-model="login._id" placeholder="" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                        <!-- Button -->
+                                    <div class="controls">
+                                        <button class="btn" ng-disabled="resetPasswordForm.$invalid" ng-click="resetPassword()">Reset Password</button>
                                     </div>
                                 </div>
                             </fieldset>

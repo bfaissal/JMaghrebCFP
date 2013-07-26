@@ -7,6 +7,7 @@ import util.{CFPUtil, MailUtil, DBUtil}
 import play.api.libs.json.{JsObject, JsNull, Json}
 import play.api.i18n.Messages.Message
 import play.api.i18n.Messages
+import java.util.Calendar
 
 object Application extends Controller {
 
@@ -47,7 +48,41 @@ object Application extends Controller {
         case e :Exception => BadRequest("Please enter a valid username/password !");
       }
   }
+  def changePassword(email:String , code :String) = Action {
+    implicit  request =>
+    try{
+      val query = MongoDBObject("_id" -> email) ++ ("resetCode" -> code)
+      DBUtil.speakers.findOne(query).map{
 
+        DBUtil.speakers.update(query,$unset("resetCode"))
+        res => Ok(views.html.password("JMaghre CFP")).withSession(session+("name" -> email))
+      }.getOrElse(BadRequest(";)"))
+    }
+    catch{
+      case e => e.printStackTrace(); BadRequest("Please enter a valid activation code !")
+    }
+  }
+  def resetPassword = Action {
+    implicit request =>   {
+    request.body.asJson.map {
+      json => {
+        try{
+          println("here")
+        val randomCode = CFPUtil.randomString(20)
+          println("here2")
+          println((json \ "_id").as[String])
+          println("here3")
+        val query = MongoDBObject("_id" -> (json \ "_id").as[String])
+        DBUtil.speakers.update(query,$set("resetCode" -> randomCode))
+        DBUtil.speakers.update(query,$set("resetTime" -> Calendar.getInstance().getTimeInMillis.toString))
+        Ok("{}")
+        }catch{
+          case e => e.printStackTrace();BadRequest("");
+        }
+      }
+    }.getOrElse(BadRequest("problem"))
+  }
+  }
   def logout = Action {
     implicit request =>
       Redirect("/").withNewSession
@@ -59,7 +94,6 @@ object Application extends Controller {
   }
   def activateSpeaker(email :String, code : String) = Action {
     try{
-      println("code = "+code)
       val query = MongoDBObject("_id" -> email) ++ ("activationCode" -> code)
       if(DBUtil.speakers.update(query,$set("actif" -> 1)).getN > 0) Ok(views.html.index("JMaghre CFP"))
       else  BadRequest("Please enter a valid activation code ! = "+code)

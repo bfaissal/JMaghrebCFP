@@ -65,6 +65,7 @@ Seq[Any](format.raw/*1.19*/("""
             <div>
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+                    <li><a href="#resetPassword" data-toggle="tab">Reset Password</a></li>
                     <li><a href="#create" data-toggle="tab">Create Account</a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
@@ -76,7 +77,7 @@ Seq[Any](format.raw/*1.19*/("""
                                 </div>
                                 <div class="control-group" ng-show="message.msg != null">
                                     <div class="alert" ng-class="message.type">
-                                        """),format.raw/*58.41*/("""{"""),format.raw/*58.42*/("""{"""),format.raw/*58.43*/("""message.msg"""),format.raw/*58.54*/("""}"""),format.raw/*58.55*/("""}"""),format.raw/*58.56*/("""
+                                        """),format.raw/*59.41*/("""{"""),format.raw/*59.42*/("""{"""),format.raw/*59.43*/("""message.msg"""),format.raw/*59.54*/("""}"""),format.raw/*59.55*/("""}"""),format.raw/*59.56*/("""
                                     </div>
                                 </div>
 
@@ -84,7 +85,7 @@ Seq[Any](format.raw/*1.19*/("""
                                         <!-- Username -->
                                     <label class="control-label" for="username" >Username</label>
                                     <div class="controls">
-                                        <input type="text" id="username" name="username" ng-model="login._id" placeholder="" class="input-xlarge">
+                                        <input type="email" id="username" name="username"  ng-model="login._id" placeholder="" class="input-xlarge">
                                     </div>
                                 </div>
 
@@ -106,6 +107,35 @@ Seq[Any](format.raw/*1.19*/("""
                             </fieldset>
                         </form>
                     </div>
+                    <div class="tab-pane fade" id="resetPassword">
+                        <form class="form-horizontal" name="resetPasswordForm" action='' method="POST" ng-controller="loginController" novalidate>
+                            <fieldset>
+                                <div id="legend">
+                                    <legend class="">Reset Password</legend>
+                                </div>
+                                <div class="control-group" ng-show="message.msg != null">
+                                    <div class="alert" ng-class="message.type">
+                                        """),format.raw/*97.41*/("""{"""),format.raw/*97.42*/("""{"""),format.raw/*97.43*/("""message.msg"""),format.raw/*97.54*/("""}"""),format.raw/*97.55*/("""}"""),format.raw/*97.56*/("""
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                        <!-- Username -->
+                                    <label class="control-label" for="usernamep" >Username</label>
+                                    <div class="controls">
+                                        <input type="email" id="usernamep" ng-required="true" name="username" ng-model="login._id" placeholder="" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                        <!-- Button -->
+                                    <div class="controls">
+                                        <button class="btn" ng-disabled="resetPasswordForm.$invalid" ng-click="resetPassword()">Reset Password</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
                     <div class="tab-pane fade" id="create">
                         <form id="registration" id="registration" name="registration" novalidate class="form-horizontal" action='' method="POST" ng-controller="registerController">
                             <fieldset>
@@ -114,7 +144,7 @@ Seq[Any](format.raw/*1.19*/("""
                                 </div>
                                 <div class="control-group" ng-show="message.msg != null">
                                     <div class="alert" ng-class="message.type">
-                                        """),format.raw/*96.41*/("""{"""),format.raw/*96.42*/("""{"""),format.raw/*96.43*/("""message.msg"""),format.raw/*96.54*/("""}"""),format.raw/*96.55*/("""}"""),format.raw/*96.56*/("""
+                                        """),format.raw/*126.41*/("""{"""),format.raw/*126.42*/("""{"""),format.raw/*126.43*/("""message.msg"""),format.raw/*126.54*/("""}"""),format.raw/*126.55*/("""}"""),format.raw/*126.56*/("""
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -182,7 +212,7 @@ Seq[Any](format.raw/*1.19*/("""
     </div>
 
 
-""")))})),format.raw/*164.2*/("""
+""")))})),format.raw/*194.2*/("""
 """))}
     }
     
@@ -195,11 +225,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jul 23 22:11:04 EDT 2013
+                    DATE: Fri Jul 26 01:29:48 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/index.scala.html
-                    HASH: 0be4bbb7cc9edeb2b33444593b7ae6bfea61b5c9
-                    MATRIX: 505->1|599->18|636->21|666->43|705->45|790->95|804->101|860->136|881->140|918->141|3295->2490|3324->2491|3353->2492|3392->2503|3421->2504|3450->2505|5703->4730|5732->4731|5761->4732|5800->4743|5829->4744|5858->4745|9818->8673
-                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|26->5|26->5|79->58|79->58|79->58|79->58|79->58|79->58|117->96|117->96|117->96|117->96|117->96|117->96|185->164
+                    HASH: 4efaecaf708cfe06a52fe55693a7f26d98212f13
+                    MATRIX: 505->1|599->18|636->21|666->43|705->45|790->95|804->101|860->136|881->140|918->141|3386->2581|3415->2582|3444->2583|3483->2594|3512->2595|3541->2596|5754->4781|5783->4782|5812->4783|5851->4794|5880->4795|5909->4796|7728->6586|7758->6587|7788->6588|7828->6599|7858->6600|7888->6601|11848->10529
+                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|26->5|26->5|80->59|80->59|80->59|80->59|80->59|80->59|118->97|118->97|118->97|118->97|118->97|118->97|147->126|147->126|147->126|147->126|147->126|147->126|215->194
                     -- GENERATED --
                 */
             

@@ -1,6 +1,6 @@
 // @SOURCE:/Users/faissalboutaounte/Sites/JMaghrebCFP/conf/routes
-// @HASH:1b058a599749ae47d4f6b2afbb0779745aec70f8
-// @DATE:Thu Jul 25 19:45:10 EDT 2013
+// @HASH:b8570703ad1b4234869d52f66f9d73bef3ad093e
+// @DATE:Fri Jul 26 01:44:31 EDT 2013
 
 
 import play.core._
@@ -45,29 +45,37 @@ private[this] lazy val controllers_Application_login3 = Route("POST", PathPatter
         
 
 // @LINE:10
-private[this] lazy val controllers_Application_logout4 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("logout"))))
+private[this] lazy val controllers_Application_resetPassword4 = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login"))))
         
 
 // @LINE:11
-private[this] lazy val controllers_Application_getSpeaker5 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("speaker"))))
+private[this] lazy val controllers_Application_changePassword5 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login/"),DynamicPart("email", """[^/]+"""),StaticPart("/"),DynamicPart("code", """[^/]+"""))))
         
 
 // @LINE:12
-private[this] lazy val controllers_Application_createSpeaker6 = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("speaker"))))
+private[this] lazy val controllers_Application_logout6 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("logout"))))
         
 
 // @LINE:13
-private[this] lazy val controllers_Application_editSpeaker7 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("speaker"))))
+private[this] lazy val controllers_Application_getSpeaker7 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("speaker"))))
         
 
 // @LINE:14
-private[this] lazy val controllers_Application_activateSpeaker8 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("activate/"),DynamicPart("email", """[^/]+"""),StaticPart("/"),DynamicPart("code", """[^/]+"""))))
+private[this] lazy val controllers_Application_createSpeaker8 = Route("PUT", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("speaker"))))
+        
+
+// @LINE:15
+private[this] lazy val controllers_Application_editSpeaker9 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("speaker"))))
         
 
 // @LINE:16
-private[this] lazy val controllers_Assets_at9 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+"""))))
+private[this] lazy val controllers_Application_activateSpeaker10 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("activate/"),DynamicPart("email", """[^/]+"""),StaticPart("/"),DynamicPart("code", """[^/]+"""))))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """go""","""controllers.Application.go"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """profile""","""controllers.Application.profile"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.login"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Application.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.getSpeaker"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.createSpeaker"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.editSpeaker"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """activate/$email<[^/]+>/$code<[^/]+>""","""controllers.Application.activateSpeaker(email:String, code:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e match {
+
+// @LINE:18
+private[this] lazy val controllers_Assets_at11 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+"""))))
+        
+def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """go""","""controllers.Application.go"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """profile""","""controllers.Application.profile"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.login"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.resetPassword"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login/$email<[^/]+>/$code<[^/]+>""","""controllers.Application.changePassword(email:String, code:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Application.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.getSpeaker"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.createSpeaker"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.editSpeaker"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """activate/$email<[^/]+>/$code<[^/]+>""","""controllers.Application.activateSpeaker(email:String, code:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -108,47 +116,63 @@ case controllers_Application_login3(params) => {
         
 
 // @LINE:10
-case controllers_Application_logout4(params) => {
+case controllers_Application_resetPassword4(params) => {
+   call { 
+        invokeHandler(controllers.Application.resetPassword, HandlerDef(this, "controllers.Application", "resetPassword", Nil,"PUT", """""", Routes.prefix + """login"""))
+   }
+}
+        
+
+// @LINE:11
+case controllers_Application_changePassword5(params) => {
+   call(params.fromPath[String]("email", None), params.fromPath[String]("code", None)) { (email, code) =>
+        invokeHandler(controllers.Application.changePassword(email, code), HandlerDef(this, "controllers.Application", "changePassword", Seq(classOf[String], classOf[String]),"GET", """""", Routes.prefix + """login/$email<[^/]+>/$code<[^/]+>"""))
+   }
+}
+        
+
+// @LINE:12
+case controllers_Application_logout6(params) => {
    call { 
         invokeHandler(controllers.Application.logout, HandlerDef(this, "controllers.Application", "logout", Nil,"GET", """""", Routes.prefix + """logout"""))
    }
 }
         
 
-// @LINE:11
-case controllers_Application_getSpeaker5(params) => {
+// @LINE:13
+case controllers_Application_getSpeaker7(params) => {
    call { 
         invokeHandler(controllers.Application.getSpeaker, HandlerDef(this, "controllers.Application", "getSpeaker", Nil,"GET", """""", Routes.prefix + """speaker"""))
    }
 }
         
 
-// @LINE:12
-case controllers_Application_createSpeaker6(params) => {
+// @LINE:14
+case controllers_Application_createSpeaker8(params) => {
    call { 
         invokeHandler(controllers.Application.createSpeaker, HandlerDef(this, "controllers.Application", "createSpeaker", Nil,"PUT", """""", Routes.prefix + """speaker"""))
    }
 }
         
 
-// @LINE:13
-case controllers_Application_editSpeaker7(params) => {
+// @LINE:15
+case controllers_Application_editSpeaker9(params) => {
    call { 
         invokeHandler(controllers.Application.editSpeaker, HandlerDef(this, "controllers.Application", "editSpeaker", Nil,"POST", """""", Routes.prefix + """speaker"""))
    }
 }
         
 
-// @LINE:14
-case controllers_Application_activateSpeaker8(params) => {
+// @LINE:16
+case controllers_Application_activateSpeaker10(params) => {
    call(params.fromPath[String]("email", None), params.fromPath[String]("code", None)) { (email, code) =>
         invokeHandler(controllers.Application.activateSpeaker(email, code), HandlerDef(this, "controllers.Application", "activateSpeaker", Seq(classOf[String], classOf[String]),"GET", """""", Routes.prefix + """activate/$email<[^/]+>/$code<[^/]+>"""))
    }
 }
         
 
-// @LINE:16
-case controllers_Assets_at9(params) => {
+// @LINE:18
+case controllers_Assets_at11(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
    }
