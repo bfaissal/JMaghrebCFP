@@ -67,11 +67,7 @@ object Application extends Controller {
     request.body.asJson.map {
       json => {
         try{
-          println("here")
         val randomCode = CFPUtil.randomString(20)
-          println("here2")
-          println((json \ "_id").as[String])
-          println("here3")
         val query = MongoDBObject("_id" -> (json \ "_id").as[String])
         DBUtil.speakers.update(query,$set("resetCode" -> randomCode))
         DBUtil.speakers.update(query,$set("resetTime" -> Calendar.getInstance().getTimeInMillis.toString))
