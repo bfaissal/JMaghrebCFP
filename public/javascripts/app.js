@@ -30,6 +30,7 @@ function registerController($scope,$resource){
         });
     $scope.speaker = new Speaker();
     $scope.createAccounte = function (){
+        delete $scope.speaker['cpassword'];
         $scope.speaker.$save(function(u){
             $scope.message = {msg : "Account Created",type:'alert-success'}
             $scope.registration.$setPristine();

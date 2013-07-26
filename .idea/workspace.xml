@@ -8,12 +8,12 @@
     <file path="/routes" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374795909737" ignored="false" />
     <file path="/main.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374601659527" ignored="false" />
     <file path="/index.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374621261024" ignored="false" />
-    <file path="/Dummy.txt" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374502378036" ignored="false" />
+    <file path="/Dummy.txt" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374797720824" ignored="false" />
     <file path="$USER_HOME$/work/play/formBuilder/project/Build.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372610176717" ignored="false" />
     <file path="/Build.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372610182452" ignored="false" />
     <file path="/DBUtil.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374605129384" ignored="false" />
     <file path="$USER_HOME$/work/play/formBuilder/app/controllers/Application.java" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372646118608" ignored="false" />
-    <file path="/app.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374729206296" ignored="false" />
+    <file path="/app.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374797876231" ignored="false" />
     <file path="$PROJECT_DIR$/../LearnScala2/src/scala/lear/part1/SalamScala.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372811978088" ignored="false" />
     <file path="/SalamScala.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372811961637" ignored="false" />
     <file path="/main.js" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1372816003883" ignored="false" />
@@ -130,10 +130,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CFPUtil.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CFPUtil.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/util/CFPUtil.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="48" selection-start="416" selection-end="416" vertical-scroll-proportion="0.4074703">
+            <state line="16" column="48" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -157,10 +157,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="8" selection-start="2206" selection-end="2241" vertical-scroll-proportion="0.0">
+            <state line="32" column="43" selection-start="993" selection-end="993" vertical-scroll-proportion="0.53480476">
               <folding />
             </state>
           </provider>
@@ -202,7 +202,6 @@
         <option value="$PROJECT_DIR$/app/Global.scala" />
         <option value="$PROJECT_DIR$/app/views/profile.scala.html" />
         <option value="$PROJECT_DIR$/app/views/go.scala.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/util/FunctionUtil.java" />
         <option value="$PROJECT_DIR$/app/util/FunctionUtil.scala" />
@@ -210,6 +209,7 @@
         <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/controllers/Application.scala" />
         <option value="$PROJECT_DIR$/app/util/CFPUtil.scala" />
+        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
       </list>
     </option>
   </component>
@@ -710,13 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="8" selection-start="2206" selection-end="2241" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conf/application.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="2" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0">
@@ -770,7 +763,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/CFPUtil.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="48" selection-start="416" selection-end="416" vertical-scroll-proportion="0.4074703">
+        <state line="16" column="48" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="43" selection-start="993" selection-end="993" vertical-scroll-proportion="0.53480476">
           <folding />
         </state>
       </provider>
