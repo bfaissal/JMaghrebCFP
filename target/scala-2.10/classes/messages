@@ -1,0 +1,2 @@
+registration.email.body=Salam {0},<p>Your accounte have been created successefully.</p><p>In order to activate your accounte you should got to this URL : <a href="http://localhost:9000/activate/{1}/{2}">http://localhost:9000/activate/{1}/{2}</a>.</p> <br/><br/>Regards.
+registration.email.subject=Accounte created

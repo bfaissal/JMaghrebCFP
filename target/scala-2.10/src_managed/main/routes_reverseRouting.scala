@@ -1,6 +1,6 @@
 // @SOURCE:/Users/faissalboutaounte/Sites/JMaghrebCFP/conf/routes
-// @HASH:37b8e7887d2299514089a7da8b69f6b20a2dff5f
-// @DATE:Thu Jul 25 00:55:38 EDT 2013
+// @HASH:1b058a599749ae47d4f6b2afbb0779745aec70f8
+// @DATE:Thu Jul 25 19:45:10 EDT 2013
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,7 +13,8 @@ import play.api.mvc._
 import Router.queryString
 
 
-// @LINE:15
+// @LINE:16
+// @LINE:14
 // @LINE:13
 // @LINE:12
 // @LINE:11
@@ -24,6 +25,7 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
+// @LINE:14
 // @LINE:13
 // @LINE:12
 // @LINE:11
@@ -44,6 +46,12 @@ def go(): Call = {
 // @LINE:9
 def login(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "login")
+}
+                                                
+
+// @LINE:14
+def activateSpeaker(email:String, code:String): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "activate/" + implicitly[PathBindable[String]].unbind("email", email) + "/" + implicitly[PathBindable[String]].unbind("code", code))
 }
                                                 
 
@@ -86,11 +94,11 @@ def getSpeaker(): Call = {
 }
                           
 
-// @LINE:15
+// @LINE:16
 class ReverseAssets {
     
 
-// @LINE:15
+// @LINE:16
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -102,7 +110,8 @@ def at(file:String): Call = {
                   
 
 
-// @LINE:15
+// @LINE:16
+// @LINE:14
 // @LINE:13
 // @LINE:12
 // @LINE:11
@@ -113,6 +122,7 @@ def at(file:String): Call = {
 // @LINE:6
 package controllers.javascript {
 
+// @LINE:14
 // @LINE:13
 // @LINE:12
 // @LINE:11
@@ -141,6 +151,17 @@ def login : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function() {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
+      }
+   """
+)
+                        
+
+// @LINE:14
+def activateSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.activateSpeaker",
+   """
+      function(email,code) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "activate/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("email", email) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("code", code)})
       }
    """
 )
@@ -215,11 +236,11 @@ def getSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:15
+// @LINE:16
 class ReverseAssets {
     
 
-// @LINE:15
+// @LINE:16
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -236,7 +257,8 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:15
+// @LINE:16
+// @LINE:14
 // @LINE:13
 // @LINE:12
 // @LINE:11
@@ -247,6 +269,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:6
 package controllers.ref {
 
+// @LINE:14
 // @LINE:13
 // @LINE:12
 // @LINE:11
@@ -267,6 +290,12 @@ def go(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:9
 def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq(), "POST", """""", _prefix + """login""")
+)
+                      
+
+// @LINE:14
+def activateSpeaker(email:String, code:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.activateSpeaker(email, code), HandlerDef(this, "controllers.Application", "activateSpeaker", Seq(classOf[String], classOf[String]), "GET", """""", _prefix + """activate/$email<[^/]+>/$code<[^/]+>""")
 )
                       
 
@@ -309,11 +338,11 @@ def getSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:15
+// @LINE:16
 class ReverseAssets {
     
 
-// @LINE:15
+// @LINE:16
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )

@@ -2,9 +2,11 @@ package controllers
 
 import play.api.mvc._
 import com.mongodb.casbah.Imports._
-import util.{MailUtil, DBUtil}
+import util.{CFPUtil, MailUtil, DBUtil}
 
 import play.api.libs.json.{JsObject, JsNull, Json}
+import play.api.i18n.Messages.Message
+import play.api.i18n.Messages
 
 object Application extends Controller {
 
@@ -35,7 +37,7 @@ object Application extends Controller {
       try{
       request.body.asJson.map {
         json => {
-          val query = MongoDBObject("_id" -> (json \ "_id").as[String]) ++ ("password" -> (json \ "password").as[String])
+          val query = MongoDBObject("_id" -> (json \ "_id").as[String]) ++ ("password" -> (json \ "password").as[String]) ++ ("actif" -> 1)
           Ok(DBUtil.speakers.find(query).mkString(",")).withSession("name" -> (json \ "_id").as[String]).as(JSON)
 
         }
@@ -55,14 +57,24 @@ object Application extends Controller {
     implicit request =>
       Ok(DBUtil.speakers.find(MongoDBObject("_id" -> request.session.get("name"))).mkString(",")).as(JSON)
   }
-
+  def activateSpeaker(email :String, code : String) = Action {
+    try{
+      println("code = "+code)
+      val query = MongoDBObject("_id" -> email) ++ ("activationCode" -> code)
+      if(DBUtil.speakers.update(query,$set("actif" -> 1)).getN > 0) Ok(views.html.index("JMaghre CFP"))
+      else  BadRequest("Please enter a valid activation code ! = "+code)
+    }
+    catch{
+      case e => e.printStackTrace(); BadRequest("Please enter a valid activation code !")
+    }
+  }
   def createSpeaker() = Action {
     request =>
       try {
         request.body.asJson.map {
           json => {
-            //println(FunctionUtil.randomString(10) )
-            var resultJson = (json,Json.obj("activationCode" -> "aleatoir")) match {
+            val activationCode = CFPUtil.randomString(20)
+            val resultJson = (json,Json.obj("activationCode" -> activationCode)) match {
               case (a:JsObject,b:JsObject) =>  a++b
               case _ => JsNull
             }
@@ -73,7 +85,8 @@ object Application extends Controller {
                 case x: DBObject => x;
                 case _ => throw new ClassCastException
               })
-              MailUtil.send((json \ "_id").as[String],"Accounte created","<b>Salam</b>",(json \ "fname").as[String])
+              val res = Messages("registration.email.body",(json \ "fname").as[String],(json \ "_id").as[String],activationCode)
+              MailUtil.send((json \ "_id").as[String],Messages("registration.email.subject"),res,(json \ "fname").as[String])
               Ok("{}").as(JSON)
             }
           }
