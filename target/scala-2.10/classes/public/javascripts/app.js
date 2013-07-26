@@ -9,21 +9,18 @@ function loginController($scope,$resource){
     $scope.login = new Login();
     $scope.doLogin = function(){
         $scope.login.$logIn(function(){
-            //alert(putResponseHeaders);
-            if($scope.login.fname != null ){
                 window.location.href="/go"
-            }
-            else{
-                $scope.message = {msg : "Username or password incorrect",type:'alert-error'}
-            }
-        },
+            },
             function(){
                 $scope.message = {msg : "Username or password incorrect",type:'alert-error'}
             })
     }
     $scope.resetPassword = function(){
 
-        $scope.login.$reset();
+        $scope.login.$reset(function(){
+            $scope.resetPasswordForm.$setPristine();
+            $scope.message = {msg : "Instructions to reset password have been sent to your email Address",type:'alert-success'}
+        });
     }
 }
 

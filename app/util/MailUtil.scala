@@ -12,7 +12,7 @@ import play.api.Logger
  * To change this template use File | Settings | File Templates.
  */
 object MailUtil {
-      def send(to: String, subject : String, body: String, fname: String){
+      def send(to: String, subject : String, body: String, fname: String = ""){
         try{
         WS.url("https://sendgrid.com/api/mail.send.json?" +
           "api_user="+java.net.URLEncoder.encode(System.getenv("OPENSHIFT_GRID_MAIL_USER"),"UTF-8")+
