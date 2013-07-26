@@ -31,7 +31,7 @@
     <file path="/profile.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374729263677" ignored="false" />
     <file path="/FunctionUtil.java" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374733159079" ignored="false" />
     <file path="/CFPUtil.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374797457837" ignored="false" />
-    <file path="/messages" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374797992156" ignored="false" />
+    <file path="/messages" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374814212329" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +115,7 @@
       <file leaf-file-name="messages" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf/messages">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="61" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+            <state line="0" column="60" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -770,7 +770,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/messages">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="61" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+        <state line="0" column="60" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
