@@ -13,6 +13,7 @@ object Application extends Controller {
 
   def index = Action {
     implicit request =>
+      println("OPENSHIFT_MONGODB_DB_USERNAME ================> " + System.getenv("OPENSHIFT_MONGODB_DB_USERNAME"))
       if (session.get("name") == None)
         Ok(views.html.index("JMaghre CFP"))
       else

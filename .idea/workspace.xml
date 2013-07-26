@@ -4,7 +4,7 @@
     <list default="true" id="36a854aa-4b9a-46ac-a604-b794ec85c8bc" name="Default" comment="" />
     <ignored path="JMaghrebCFP.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Application.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374869036817" ignored="false" />
+    <file path="/Application.scala" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374869262747" ignored="false" />
     <file path="/routes" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374817464894" ignored="false" />
     <file path="/main.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374601659527" ignored="false" />
     <file path="/index.scala.html" changelist="36a854aa-4b9a-46ac-a604-b794ec85c8bc" time="1374816583200" ignored="false" />
@@ -93,10 +93,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Application.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Application.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="18" selection-start="1219" selection-end="1219" vertical-scroll-proportion="-16.92">
+            <state line="15" column="66" selection-start="428" selection-end="428" vertical-scroll-proportion="0.3865699">
               <folding>
                 <element signature="e#21#42#0" expanded="true" />
               </folding>
@@ -140,10 +140,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="42" selection-start="376" selection-end="376" vertical-scroll-proportion="0.29945552">
+            <state line="18" column="20" selection-start="569" selection-end="569" vertical-scroll-proportion="-10.8">
               <folding />
             </state>
           </provider>
@@ -209,8 +209,8 @@
         <option value="$PROJECT_DIR$/app/util/CFPUtil.scala" />
         <option value="$PROJECT_DIR$/app/util/MailUtil.scala" />
         <option value="$PROJECT_DIR$/conf/messages" />
-        <option value="$PROJECT_DIR$/app/controllers/Application.scala" />
         <option value="$PROJECT_DIR$/public/javascripts/app.js" />
+        <option value="$PROJECT_DIR$/app/controllers/Application.scala" />
       </list>
     </option>
   </component>
@@ -790,19 +790,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="18" selection-start="1219" selection-end="1219" vertical-scroll-proportion="-16.92">
-          <folding>
-            <element signature="e#21#42#0" expanded="true" />
-          </folding>
+        <state line="18" column="20" selection-start="569" selection-end="569" vertical-scroll-proportion="-10.8">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="42" selection-start="376" selection-end="376" vertical-scroll-proportion="0.29945552">
-          <folding />
+        <state line="15" column="66" selection-start="428" selection-end="428" vertical-scroll-proportion="0.3865699">
+          <folding>
+            <element signature="e#21#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

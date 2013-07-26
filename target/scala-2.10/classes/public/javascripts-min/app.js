@@ -3,22 +3,24 @@ function loginController($scope,$resource){
     var Login = $resource("login",
         {} ,
         {
-            logIn: {method: 'POST'}
+            logIn: {method: 'POST'},
+            reset: {method: 'PUT'}
         });
     $scope.login = new Login();
     $scope.doLogin = function(){
         $scope.login.$logIn(function(){
-            //alert(putResponseHeaders);
-            if($scope.login.fname != null ){
                 window.location.href="/go"
-            }
-            else{
-                $scope.message = {msg : "Username or password incorrect",type:'alert-error'}
-            }
-        },
+            },
             function(){
                 $scope.message = {msg : "Username or password incorrect",type:'alert-error'}
             })
+    }
+    $scope.resetPassword = function(){
+
+        $scope.login.$reset(function(){
+            $scope.resetPasswordForm.$setPristine();
+            $scope.message = {msg : "Instructions to reset password have been sent to your email Address",type:'alert-success'}
+        });
     }
 }
 
@@ -30,6 +32,7 @@ function registerController($scope,$resource){
         });
     $scope.speaker = new Speaker();
     $scope.createAccounte = function (){
+        delete $scope.speaker['cpassword'];
         $scope.speaker.$save(function(u){
             $scope.message = {msg : "Account Created",type:'alert-success'}
             $scope.registration.$setPristine();
@@ -37,10 +40,13 @@ function registerController($scope,$resource){
             $scope.message = {msg : u.data.message,type:'alert-error'}
         });
     }
+
+
 }
 
-function talksController($scope,$resource){
-    var Login = $resource("speaker",
+
+function talksController($scope,$resource,$location){
+    var Login = $resource("/speaker",
         {} ,
         {
             logIn: {method: 'GET'},
@@ -73,6 +79,7 @@ function talksController($scope,$resource){
         $scope.registration.$setPristine();
     }
     $scope.editAccounte = function (){
+
         $scope.login.$save(function(u){
             $scope.message = {msg : "Account edited",type:'alert-success'}
             $scope.registration.$setPristine();
@@ -90,5 +97,16 @@ function talksController($scope,$resource){
     }
     $scope.showForm = function(){
         $scope.showFormVal = true;
+    }
+    $scope.chnagePassword = function (){
+
+        $scope.login.$save(function(u){
+            $scope.message = {msg : "Account edited",type:'alert-success'}
+            $scope.registration.$setPristine();
+            window.location.href = "/logout";
+
+        },function(u){
+            $scope.message = {msg : u.data.message,type:'alert-error'}
+        });
     }
 }
