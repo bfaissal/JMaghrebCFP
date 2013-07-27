@@ -8,14 +8,15 @@ import play.api.libs.json.{JsObject, JsNull, Json}
 import play.api.i18n.Messages.Message
 import play.api.i18n.Messages
 import java.util.{UUID, Calendar}
+import play.api.Play
 
 object Application extends Controller {
 
   def index = Action {
     implicit request =>
-      println("OPENSHIFT_GRID_MAIL_USER ================> " + System.getenv("OPENSHIFT_GRID_MAIL_USER"))
-      println("OPENSHIFT_GRID_MAIL_password ================> " + System.getenv("OPENSHIFT_GRID_MAIL_password"))
-      println("hello_openshift ================> " + System.getenv("hello_openshift"))
+      println("OPENSHIFT_GRID_MAIL_USER ================> " + Play.current.configuration.getString("OPENSHIFT_GRID_MAIL_USER"))
+      println("OPENSHIFT_GRID_MAIL_password ================> " + Play.current.configuration.getString("OPENSHIFT_GRID_MAIL_password"))
+
       if (session.get("name") == None)
         Ok(views.html.index("JMaghre CFP"))
       else
