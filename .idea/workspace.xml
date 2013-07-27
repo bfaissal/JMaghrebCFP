@@ -420,6 +420,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -445,10 +446,10 @@
       <setting name="play2JvmOptions" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M" />
       <setting name="play2NeedOpenInBrowser" value="true" />
       <setting name="play2OpenUrl" value="http://localhost:9000" />
-      <setting name="play2EnvVariables" value="" />
+      <setting name="play2EnvVariables" value="-DOPENSHIFT_MONGODB_DB_PASSWORD=nhCD2lGrPUit -DOPENSHIFT_GRID_MAIL_password=MoroccoJUG -DOPENSHIFT_GRID_MAIL_USER=faissalb -DOPENSHIFT_MONGODB_DB_USER=admin " />
       <setting name="play2IsNonDefaultInstallDirUsed" value="false" />
       <setting name="play2NonDefaultInstallDir" value="" />
-      <setting name="play2isAutoReloadEnabled" value="false" />
+      <setting name="play2isAutoReloadEnabled" value="true" />
       <RunnerSettings RunnerId="JRebel Debug">
         <option name="bootstrapPath" />
         <option name="debugPort" value="" />
@@ -462,6 +463,10 @@
       </RunnerSettings>
       <RunnerSettings RunnerId="Play2AppRunner" />
       <RunnerSettings RunnerId="Play2AppRunner" />
+      <RunnerSettings RunnerId="Play2AppRunner" />
+      <RunnerSettings RunnerId="Play2AppRunner" />
+      <ConfigurationWrapper RunnerId="Play2AppRunner" />
+      <ConfigurationWrapper RunnerId="Play2AppRunner" />
       <ConfigurationWrapper RunnerId="Play2AppRunner" />
       <ConfigurationWrapper RunnerId="Play2AppRunner" />
       <method />
