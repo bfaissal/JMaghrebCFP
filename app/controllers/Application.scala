@@ -15,7 +15,7 @@ object Application extends Controller {
     implicit request =>
       println("OPENSHIFT_GRID_MAIL_USER ================> " + System.getenv("OPENSHIFT_GRID_MAIL_USER"))
       println("OPENSHIFT_GRID_MAIL_password ================> " + System.getenv("OPENSHIFT_GRID_MAIL_password"))
-      println("faissalb ================> " + System.getenv("faissalb"))
+      println("hello_openshift ================> " + System.getenv("hello_openshift"))
       if (session.get("name") == None)
         Ok(views.html.index("JMaghre CFP"))
       else
