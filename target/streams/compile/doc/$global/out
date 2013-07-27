@@ -1,6 +1,0 @@
-[0m[[0minfo[0m] [0mGenerating Scala API documentation for main sources to /Users/faissalboutaounte/Sites/JMaghrebCFP/target/scala-2.10/api...[0m
-[0m[[33mwarn[0m] [0m/Users/faissalboutaounte/Sites/JMaghrebCFP/app/util/MailUtil.scala:27: This catches all Throwables. If this is really intended, use `case e : Throwable` to clear this warning.[0m
-[0m[[33mwarn[0m] [0m          case e => Logger.info("Email not sent")[0m
-[0m[[33mwarn[0m] [0m               ^[0m
-[0m[[33mwarn[0m] [0mone warning found[0m
-[0m[[0minfo[0m] [0mScala API documentation generation successful.[0m
