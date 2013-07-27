@@ -8,3 +8,5 @@ dist
 .idea
 .idea_modules
 conf/openshift.conf
+.openshift
+target
