@@ -3,3 +3,5 @@
 # build hook has been run but before the application has been started back
 # up again.  This script gets executed directly, so it could be python, php,
 # ruby, etc.
+export OPENSHIFT_GRID_MAIL_USER=faissalb
+export OPENSHIFT_GRID_MAIL_password=MoroccoJUG
