@@ -93,21 +93,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Application.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
+      <file leaf-file-name="pre_start" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.openshift/action_hooks/pre_start">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="83" selection-start="663" selection-end="663" vertical-scroll-proportion="0.28767124">
-              <folding>
-                <element signature="e#21#42#0" expanded="true" />
-              </folding>
+            <state line="1" column="12" selection-start="0" selection-end="36" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MailUtil.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/util/MailUtil.scala">
+      <file leaf-file-name="pre_build" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.openshift/action_hooks/pre_build">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="107" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0">
+            <state line="4" column="38" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_deploy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.openshift/action_hooks/post_deploy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.1984127">
               <folding />
             </state>
           </provider>
@@ -186,7 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/Global.scala" />
         <option value="$PROJECT_DIR$/app/Global.scala" />
         <option value="$PROJECT_DIR$/app/views/go.scala.html" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -202,6 +208,7 @@
         <option value="$PROJECT_DIR$/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/app/util/DBUtil.scala" />
         <option value="$PROJECT_DIR$/app/controllers/Application.scala" />
+        <option value="$PROJECT_DIR$/.openshift/action_hooks/post_deploy" />
       </list>
     </option>
   </component>
@@ -401,6 +408,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JMaghrebCFP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JMaghrebCFP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".openshift" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JMaghrebCFP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JMaghrebCFP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".openshift" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action_hooks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -709,21 +748,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="4" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="41" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Global.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="26" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="16" selection-start="961" selection-end="961" vertical-scroll-proportion="0.0" />
@@ -750,10 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="83" selection-start="663" selection-end="663" vertical-scroll-proportion="0.28767124">
-          <folding>
-            <element signature="e#21#42#0" expanded="true" />
-          </folding>
+        <state line="17" column="83" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -809,6 +831,27 @@
     <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="89" column="77" selection-start="4279" selection-end="4296" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.openshift/action_hooks/pre_start">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="12" selection-start="0" selection-end="36" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.openshift/action_hooks/pre_build">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="38" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.openshift/action_hooks/post_deploy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.1984127">
           <folding />
         </state>
       </provider>
