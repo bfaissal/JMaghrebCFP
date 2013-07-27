@@ -10,4 +10,4 @@ dist
 conf/openshift.conf
 conf/application.conf
 .openshift
-target
+
