@@ -1,99 +1,111 @@
 @(message: String)
 
-@main("JMaghreb Call For Paper") {
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-} {
-    <div class="container" id="loginModal" ng-controller="talksController">
+    @main("JMaghreb Call For Paper") {
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    } {
+        <div class="container" id="loginModal" ng-controller="talksController">
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" id="brand" href="#">
-                        <span>{{login.lname}} {{login.fname}} ({{login._id}})</span>
-                    </a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="">
-                                <a href="/go">Talks</a>
-                            </li>
-                            <li class="">
-                                <a href="/profile">Profile</a>
-                            </li>
-                            <li class="">
-                                <a href="logout">logout</a>
-                            </li>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="brand" id="brand" href="#">
+                            <span>{{login.lname}} {{login.fname}} ({{login._id}})</span>
+                        </a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li class="">
+                                    <a href="/go">Talks</a>
+                                </li>
+                                <li class="">
+                                    <a href="/profile">Profile</a>
+                                </li>
+                                <li class="">
+                                    <a href="logout">logout</a>
+                                </li>
 
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row" >
-            <div class="span12">
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+            <div class="row" >
+                <div class="span12">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
 
-                <form id="registration" id="registration" name="registration" novalidate class="form-horizontal" action='' method="POST" ng-controller="registerController">
-                    <fieldset>
-                        <div id="legendRegistration">
-                            <legend class="">Speak In JMaghreb</legend>
-                        </div>
-                        <div class="control-group" ng-show="message.msg != null">
-                            <div class="alert" ng-class="message.type">
-                                {{message.msg}}
+                    <form id="registration" name="registration" novalidate class="form-horizontal" action='' method="POST" ng-controller="registerController">
+                        <fieldset>
+                            <div id="legendRegistration">
+                                <legend class="">Speak In JMaghreb</legend>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            All fields are required
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="fname">First Name</label>
-                            <div class="controls">
-                                <input type="text" id="fname" ng-required="true" ng-model="login.fname" class="input-xlarge">
+                            <div class="control-group" ng-show="message.msg != null">
+                                <div class="alert" ng-class="message.type">
+                                    {{message.msg}}
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="lname">Last Name</label>
-                            <div class="controls">
-                                <input type="text" id="lname" ng-required="true" ng-model="login.lname" class="input-xlarge">
+                            <div class="control-group">
+                                All fields are required
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="email">Email</label>
-                            <div class="controls">
-                                <input type="email" ng-required="true" id="email" required="true" ng-model="login._id" class="input-xlarge">
+                            <div class="control-group">
+                                <label class="control-label" for="fname">First Name</label>
+                                <div class="controls">
+                                    <input type="text" id="fname" ng-required="true" ng-model="login.fname" class="input-xlarge">
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="bio">Bio</label>
-                            <div class="controls">
-                                <textarea rows="10" id="bio" ng-maxlength="1000" ng-model="login.bio" ng-required="true" class="input-xxlarge"></textarea>
-                                <div>1000 char.</div>
+                            <div class="control-group">
+                                <label class="control-label" for="lname">Last Name</label>
+                                <div class="controls">
+                                    <input type="text" id="lname" ng-required="true" ng-model="login.lname" class="input-xlarge">
+                                </div>
                             </div>
-                        </div>
+                            <div class="control-group">
+                                <label class="control-label" for="email">Email</label>
+                                <div class="controls">
+                                    <input type="email" ng-required="true" id="email" required="true" ng-model="login._id" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="bio">Bio</label>
+                                <div class="controls">
+                                    <textarea rows="10" id="bio" ng-maxlength="1000" ng-model="login.bio" ng-required="true" class="input-xxlarge"></textarea>
+                                    <div>1000 char.</div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="bio">Picture</label>
+                                <div class="controls">
+                                    <uploader id="pico" image="login.image" url="upload"></uploader>
+                                </div>
+                            </div>
+                            <div class="control-group">
 
-                        <div class="control-group">
-
-                            <div class="controls">
-                                <button class="btn" ng-disabled="registration.$invalid || (login.password != login.cpassword)" ng-click="editAccounte()">
-                                    Save</button>
-                                <button class="btn btn-danger" ng-click="cancelEditAccounte()">Cancel</button>
+                                <div class="controls">
+                                    <button class="btn" ng-disabled="registration.$invalid || (login.password != login.cpassword)" ng-click="editAccounte()">
+                                        Save</button>
+                                    <button class="btn btn-danger" ng-click="cancelEditAccounte()">Cancel</button>
+                                </div>
                             </div>
-                        </div>
-                    </fieldset>
-                    <div>
+                        </fieldset>
+                        <div>
 
-                    </div>
-                </form>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
 
-    </div>
-}
+        </div>
+    } {
+        <script src="@routes.Assets.at("javascripts/jquery.ui.widget.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/jquery.iframe-transport.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/jquery.fileupload.js")" type="text/javascript"></script>
+
+
+
+    }

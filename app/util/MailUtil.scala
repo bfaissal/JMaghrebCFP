@@ -25,7 +25,7 @@ object MailUtil {
           "&html="+java.net.URLEncoder.encode(body,"UTF-8")).get
         }
         catch {
-          case e => Logger.info("Email not sent")
+          case e: Throwable => Logger.info("Email not sent")
         }
       }
 }

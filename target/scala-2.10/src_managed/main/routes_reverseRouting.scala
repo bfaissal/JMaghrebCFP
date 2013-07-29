@@ -1,6 +1,6 @@
 // @SOURCE:/Users/faissalboutaounte/Sites/JMaghrebCFP/conf/routes
-// @HASH:b8570703ad1b4234869d52f66f9d73bef3ad093e
-// @DATE:Fri Jul 26 01:44:31 EDT 2013
+// @HASH:fe77c709acd7c62002492ba8b3e9c3e7be54a448
+// @DATE:Mon Jul 29 00:38:03 EDT 2013
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,7 +13,9 @@ import play.api.mvc._
 import Router.queryString
 
 
+// @LINE:20
 // @LINE:18
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -27,6 +29,8 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
+// @LINE:18
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -77,6 +81,12 @@ def logout(): Call = {
 }
                                                 
 
+// @LINE:18
+def images(id:String): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "images/" + implicitly[PathBindable[String]].unbind("id", id))
+}
+                                                
+
 // @LINE:15
 def editSpeaker(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "speaker")
@@ -95,6 +105,12 @@ def createSpeaker(): Call = {
 }
                                                 
 
+// @LINE:17
+def upload(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "upload")
+}
+                                                
+
 // @LINE:6
 def index(): Call = {
    Call("GET", _prefix)
@@ -110,11 +126,11 @@ def getSpeaker(): Call = {
 }
                           
 
-// @LINE:18
+// @LINE:20
 class ReverseAssets {
     
 
-// @LINE:18
+// @LINE:20
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -126,7 +142,9 @@ def at(file:String): Call = {
                   
 
 
+// @LINE:20
 // @LINE:18
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -140,6 +158,8 @@ def at(file:String): Call = {
 // @LINE:6
 package controllers.javascript {
 
+// @LINE:18
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -220,6 +240,17 @@ def logout : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:18
+def images : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.images",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "images/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
+
 // @LINE:15
 def editSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.editSpeaker",
@@ -253,6 +284,17 @@ def createSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:17
+def upload : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.upload",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "upload"})
+      }
+   """
+)
+                        
+
 // @LINE:6
 def index : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.index",
@@ -278,11 +320,11 @@ def getSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:18
+// @LINE:20
 class ReverseAssets {
     
 
-// @LINE:18
+// @LINE:20
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -299,7 +341,9 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:20
 // @LINE:18
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -313,6 +357,8 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:6
 package controllers.ref {
 
+// @LINE:18
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -363,6 +409,12 @@ def logout(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
+// @LINE:18
+def images(id:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.images(id), HandlerDef(this, "controllers.Application", "images", Seq(classOf[String]), "GET", """""", _prefix + """images/$id<[^/]+>""")
+)
+                      
+
 // @LINE:15
 def editSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.editSpeaker(), HandlerDef(this, "controllers.Application", "editSpeaker", Seq(), "POST", """""", _prefix + """speaker""")
@@ -381,6 +433,12 @@ def createSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
+// @LINE:17
+def upload(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.upload(), HandlerDef(this, "controllers.Application", "upload", Seq(), "POST", """""", _prefix + """upload""")
+)
+                      
+
 // @LINE:6
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
@@ -396,11 +454,11 @@ def getSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:18
+// @LINE:20
 class ReverseAssets {
     
 
-// @LINE:18
+// @LINE:20
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )

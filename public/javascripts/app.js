@@ -1,6 +1,6 @@
 angular.module('JMAGHREB', ['ngResource'])
 function loginController($scope,$resource){
-    var Login = $resource("login",
+    var Login = $resource("/login",
         {} ,
         {
             logIn: {method: 'POST'},
@@ -25,14 +25,16 @@ function loginController($scope,$resource){
 }
 
 function registerController($scope,$resource){
-    var Speaker = $resource("speaker",
+    var Speaker = $resource("/speaker",
         {} ,
         {
             save: {method: 'PUT'}
         });
     $scope.speaker = new Speaker();
+    $scope.speaker.image = '';
+    $scope.speaker.tist = 'Faissal';
     $scope.createAccounte = function (){
-        delete $scope.speaker['cpassword'];
+        //delete $scope.speaker['cpassword'];
         $scope.speaker.$save(function(u){
             $scope.message = {msg : "Account Created",type:'alert-success'}
             $scope.registration.$setPristine();
@@ -79,7 +81,6 @@ function talksController($scope,$resource,$location){
         $scope.registration.$setPristine();
     }
     $scope.editAccounte = function (){
-
         $scope.login.$save(function(u){
             $scope.message = {msg : "Account edited",type:'alert-success'}
             $scope.registration.$setPristine();

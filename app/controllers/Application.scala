@@ -2,21 +2,20 @@ package controllers
 
 import play.api.mvc._
 import com.mongodb.casbah.Imports._
-import util.{CFPUtil, MailUtil, DBUtil}
+import _root_.util.{CFPUtil, MailUtil, DBUtil}
 
-import play.api.libs.json.{JsObject, JsNull, Json}
+import play.api.libs.json._
 import play.api.i18n.Messages.Message
 import play.api.i18n.Messages
 import java.util.{UUID, Calendar}
 import play.api.Play
+import java.io.{FileInputStream, FileOutputStream, FileNotFoundException, File}
+import play.api.libs.json.JsObject
 
 object Application extends Controller {
 
   def index = Action {
     implicit request =>
-      println("OPENSHIFT_GRID_MAIL_USER ================> " + Play.current.configuration.getString("OPENSHIFT_GRID_MAIL_USER"))
-      println("OPENSHIFT_GRID_MAIL_password ================> " + Play.current.configuration.getString("OPENSHIFT_GRID_MAIL_password"))
-
       if (session.get("name") == None)
         Ok(views.html.index("JMaghre CFP"))
       else
@@ -44,8 +43,8 @@ object Application extends Controller {
       try {
         request.body.asJson.map {
           json => {
-            println("pass " +(json \ "password").as[String])
-            println("un " +(json \ "_id").as[String])
+            println("pass " + (json \ "password").as[String])
+            println("un " + (json \ "_id").as[String])
             val query = MongoDBObject("_id" -> (json \ "_id").as[String]) ++ ("password" -> (json \ "password").as[String]) ++ ("actif" -> 1)
             Ok("{}").withSession("name" -> (json \ "_id").as[String]).as(JSON)
 
@@ -111,17 +110,18 @@ object Application extends Controller {
   }
 
   def createSpeaker() = Action {
-    request =>
+    implicit request =>
       try {
         request.body.asJson.map {
           json => {
             val activationCode = CFPUtil.randomString()
-            val resultJson = (json, Json.obj("activationCode" -> activationCode)) match {
-              case (a: JsObject, b: JsObject) => a ++ b
+            val resultJson = json match {
+              case a: JsObject => a ++ Json.obj("activationCode" -> activationCode)
               case _ => JsNull
             }
-            if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
+            if ((json \ "_id").asOpt[String].isEmpty || (json \ "image").asOpt[String].isEmpty) BadRequest("username is empty")
             else {
+              println("json = "+resultJson.toString())
               DBUtil.speakers += (com.mongodb.util.JSON.parse(resultJson.toString())
               match {
                 case x: DBObject => x;
@@ -129,7 +129,12 @@ object Application extends Controller {
               })
               val res = Messages("registration.email.body", (json \ "fname").as[String], (json \ "_id").as[String], activationCode)
               MailUtil.send((json \ "_id").as[String], Messages("registration.email.subject"), res, (json \ "fname").as[String])
-              Ok("{}").as(JSON)
+              val image =  (json \ "image").asOpt[String].get
+              val imgSrc = new File(System.getenv("TMPDIR")+image+".gif")
+              val imgDest = new File(System.getenv("OPENSHIFT_DATA_DIR")+"images/" +image+".gif")
+              new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue )
+              imgSrc.delete()
+              Ok("{}").as(JSON).withSession(session - "uploadedImage")
             }
           }
         }.getOrElse(BadRequest("Error"))
@@ -140,7 +145,7 @@ object Application extends Controller {
   }
 
   def editSpeaker() = Action {
-    request =>
+    implicit request =>
       request.body.asJson.map {
         json => {
           if ((json \ "_id").asOpt[String].isEmpty) BadRequest("username is empty")
@@ -151,6 +156,11 @@ object Application extends Controller {
                 case x: DBObject => x;
                 case _ => throw new ClassCastException
               })
+              val image =  (json \ "image").asOpt[String].get
+              val imgSrc = new File(System.getenv("TMPDIR")+image+".gif")
+              val imgDest = new File(System.getenv("OPENSHIFT_DATA_DIR")+"images/" +image+".gif")
+              new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue )
+              imgSrc.delete()
               Ok(json).as(JSON)
             }
             catch {
@@ -159,6 +169,36 @@ object Application extends Controller {
           }
         }
       }.getOrElse(BadRequest("Error"))
+  }
+
+  def upload = Action(parse.multipartFormData) { request =>
+    request.body.file("file").map { picture =>
+      val image = System.currentTimeMillis().toString
+      val res = Json.obj(
+        "files" -> Json.arr(
+          Json.obj(
+            "name" -> image
+          )
+        )
+      )
+      val filename = picture.filename
+      val contentType = picture.contentType
+      picture.ref.moveTo(new File(System.getenv("TMPDIR")+image+".gif"))
+      Ok(res).as(JSON)
+    }.getOrElse {
+      Redirect(routes.Application.index).flashing(
+        "error" -> "Missing file"
+      )
+    }
+  }
+  def images(id: String) = Action {
+    try{
+      Ok.sendFile(new File(System.getenv("OPENSHIFT_DATA_DIR")+"images/" + id+".gif")).as("image/png")
+    }
+    catch{
+      case e:FileNotFoundException => Ok("");
+    }
+
   }
 }
 

@@ -176,6 +176,12 @@ Seq[Any](format.raw/*1.19*/("""
                                     </div>
                                 </div>
                                 <div class="control-group">
+                                    <label class="control-label" for="bio">Picture</label>
+                                    <div class="controls">
+                                        <uploader id="picture" image="speaker.image" url="upload"></uploader>
+                                    </div>
+                                </div>
+                                <div class="control-group">
                                     <label class="control-label" for="password">Password</label>
                                     <div class="controls">
                                         <input type="password" id="password" ng-required="true" ng-model="speaker.password" class="input-xlarge">
@@ -212,7 +218,13 @@ Seq[Any](format.raw/*1.19*/("""
     </div>
 
 
-""")))})),format.raw/*194.2*/("""
+""")))}/*200.2*/{_display_(Seq[Any](format.raw/*200.3*/("""
+
+    <script src=""""),_display_(Seq[Any](/*202.19*/routes/*202.25*/.Assets.at("javascripts/jquery.ui.widget.js"))),format.raw/*202.70*/("""" type="text/javascript"></script>
+    <script src=""""),_display_(Seq[Any](/*203.19*/routes/*203.25*/.Assets.at("javascripts/jquery.iframe-transport.js"))),format.raw/*203.77*/("""" type="text/javascript"></script>
+    <script src=""""),_display_(Seq[Any](/*204.19*/routes/*204.25*/.Assets.at("javascripts/jquery.fileupload.js"))),format.raw/*204.71*/("""" type="text/javascript"></script>
+
+""")))})),format.raw/*206.2*/("""
 """))}
     }
     
@@ -225,11 +237,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Jul 26 01:29:48 EDT 2013
+                    DATE: Mon Jul 29 18:32:26 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/index.scala.html
-                    HASH: 4efaecaf708cfe06a52fe55693a7f26d98212f13
-                    MATRIX: 505->1|599->18|636->21|666->43|705->45|790->95|804->101|860->136|881->140|918->141|3386->2581|3415->2582|3444->2583|3483->2594|3512->2595|3541->2596|5754->4781|5783->4782|5812->4783|5851->4794|5880->4795|5909->4796|7728->6586|7758->6587|7788->6588|7828->6599|7858->6600|7888->6601|11848->10529
-                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|26->5|26->5|80->59|80->59|80->59|80->59|80->59|80->59|118->97|118->97|118->97|118->97|118->97|118->97|147->126|147->126|147->126|147->126|147->126|147->126|215->194
+                    HASH: 420afe3f9cf0dfb1011c4bff7754090bd60d6de9
+                    MATRIX: 505->1|599->18|636->21|666->43|705->45|790->95|804->101|860->136|881->140|918->141|3386->2581|3415->2582|3444->2583|3483->2594|3512->2595|3541->2596|5754->4781|5783->4782|5812->4783|5851->4794|5880->4795|5909->4796|7728->6586|7758->6587|7788->6588|7828->6599|7858->6600|7888->6601|12237->10931|12276->10932|12333->10952|12349->10958|12417->11003|12507->11056|12523->11062|12598->11114|12688->11167|12704->11173|12773->11219|12842->11256
+                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|26->5|26->5|80->59|80->59|80->59|80->59|80->59|80->59|118->97|118->97|118->97|118->97|118->97|118->97|147->126|147->126|147->126|147->126|147->126|147->126|221->200|221->200|223->202|223->202|223->202|224->203|224->203|224->203|225->204|225->204|225->204|227->206
                     -- GENERATED --
                 */
             

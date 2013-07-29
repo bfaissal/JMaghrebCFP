@@ -5,3 +5,59 @@
  * Time: 21:23
  * To change this template use File | Settings | File Templates.
  */
+angular.module('JMAGHREB', ['ngResource'])
+    .directive('uploader', function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            transclude: false,
+            scope: {id: '=',
+                image: '=',
+                url: "="},
+            link: function (scope, element, attrs) {
+                //attrs.id = attr.id
+                try{
+                scope.$apply(function () {
+                    scope.image = attrs.image;
+                })
+                }catch(e){
+
+                }
+
+                scope.url = attrs.url;
+                scope.id = attrs.id;
+                //alert("Salam = "+scope.$parent.$eval(attrs.image));
+                $("#" + attrs.id).fileupload({
+                    dataType: 'json',
+                    url: attrs.url,
+                    //autoUpload: false,
+                    done: function (e, data) {
+                        $.each(data.result.files, function (index, file) {
+                            scope.$apply(function () {
+                                scope.image = file.name;
+                            })
+                        });
+                    }
+                }).on('fileuploadadd', function (e, data) {
+                        $.each(data.files, function (index, file) {
+
+                        });
+                    });
+                scope.canceUpload = function () {
+                    scope.image = "";
+
+                }
+            },
+            template: '<div><span id="{{ id }}Btn" ng-show="image == null || image ==\'\'" class="btn btn-success fileinput-button">' +
+                '<i class="icon-plus icon-white"></i>    ' +
+                '<span>Select file ...</span>' +
+                '<!-- The file input field used as target for the file upload widget -->   ' +
+                '<input id="{{id}}" type="file" class="input-xxlarge" name="file"/> ' +
+                '</span>         ' +
+                '<div id="{{id}}Holder" ng-show="image != null && image !=\'\'" style="display: none"> ' +
+                '<div><img style="width: 150px;" src=\'/images/{{ image }}\'/></div>' +
+                '<button class="btn btn-danger" ng-click="canceUpload()">Delete</button>  ' +
+                '</div></div>'
+
+        }
+    })
