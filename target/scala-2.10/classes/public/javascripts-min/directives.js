@@ -32,6 +32,8 @@ angular.module('JMAGHREB', ['ngResource'])
                     dataType: 'json',
                     url: attrs.url,
                     //autoUpload: false,
+                    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+                    maxFileSize: 1000000, // 1 MB
                     done: function (e, data) {
                         $.each(data.result.files, function (index, file) {
                             scope.$apply(function () {
@@ -44,6 +46,14 @@ angular.module('JMAGHREB', ['ngResource'])
                         $.each(data.files, function (index, file) {
 
                         });
+                    }).on('fileuploadfail', function (e, data) {
+                        alert( " "+data.jqXHR.responseText);
+                        /*for( k in data.response()){
+                            alert(k)
+                        }
+                        for( k in data){
+                            alert(":: " +k)
+                        } */
                     });
                 scope.canceUpload = function () {
                     $http({method: 'GET', url: '/deleteImage/'+scope.image+'/'+scope.isEdit}).
