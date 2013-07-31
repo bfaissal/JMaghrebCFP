@@ -22,6 +22,8 @@ Setup
     export OPENSHIFT_MONGODB_DB_HOST="YOUR_MONDO_DB_HOST"
     export OPENSHIFT_MONGODB_DB_PORT="YOUR_MONDO_DB_PORT"
     export OPENSHIFT_MONGODB_DB_PASSWORD="PASSWORD USED FOR THE USER admin"
+	export OPENSHIFT_DATA_DIR="REPOSITORY where uploaded images will be held"
+	export TMPDIR="REPOSITORY WHERE TEMPORARY FILES ARE STORED"
     
 if you have a mail grid account, wich you want use in order to send notificatoins, you can  define those variables ( optional):
 
