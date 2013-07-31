@@ -32,6 +32,8 @@ angular.module('JMAGHREB', ['ngResource'])
                     dataType: 'json',
                     url: attrs.url,
                     //autoUpload: false,
+                    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+                    maxFileSize: 1000000, // 1 MB
                     done: function (e, data) {
                         $.each(data.result.files, function (index, file) {
                             scope.$apply(function () {
