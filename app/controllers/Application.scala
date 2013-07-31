@@ -161,89 +161,88 @@ object Application extends Controller {
               val image = (json \ "image").asOpt[String].get
               val imgSrc = new File(System.getenv("TMPDIR") + image + ".gif")
               val imgDest = new File(System.getenv("OPENSHIFT_DATA_DIR") + "images/" + image + ".gif")
-              if (imgSrc.exists()) {}
-              new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue)
-              imgSrc.delete()
+              if (imgSrc.exists()) {
+                new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue)
+                imgSrc.delete()
+              }
+              Ok(json).as(JSON)
             }
-            Ok(json).as(JSON)
-          }
-          catch
-          {
-            case e => e.printStackTrace(); InternalServerError("{\"message\":\"Dublicate username \"}").as(JSON)
+            catch {
+              case e => e.printStackTrace(); InternalServerError("{\"message\":\"Dublicate username \"}").as(JSON)
+            }
           }
         }
+      }.getOrElse(BadRequest("Error"))
+  }
+
+  def upload = Action(parse.maxLength(maxLength = 1024000, parse.multipartFormData)) {
+    request =>
+      request.body match {
+        case Right(multiPartBody) =>
+          multiPartBody.file("file").map {
+            picture =>
+              picture.contentType match {
+                case Some("image/gif") | Some("image/jpg") | Some("image/png") | Some("image/jpeg") =>
+                  val image = System.currentTimeMillis().toString
+                  val res = Json.obj(
+                    "files" -> Json.arr(
+                      Json.obj(
+                        "name" -> image
+                      )
+                    )
+                  )
+                  val filename = picture.filename
+                  val contentType = picture.contentType
+                  picture.ref.moveTo(new File(System.getenv("TMPDIR") + image + ".gif"))
+                  Ok(res).as(JSON)
+                case _ => BadRequest("incorrect file Type");
+              }
+          }.getOrElse {
+            Redirect(routes.Application.index).flashing(
+              "error" -> "Missing file"
+            )
+          }
+        case Left(multiPartBody) => BadRequest("Max size exceeded")
+        case _ => BadRequest("Other")
       }
-  }.getOrElse(BadRequest("Error"))
-}
+  }
 
-def upload = Action (parse.maxLength (maxLength = 1024000, parse.multipartFormData) ) {
-request =>
-request.body match {
-case Right (multiPartBody) =>
-multiPartBody.file ("file").map {
-picture =>
-picture.contentType match {
-case Some ("image/gif") | Some ("image/jpg") | Some ("image/png") | Some ("image/jpeg") =>
-val image = System.currentTimeMillis ().toString
-val res = Json.obj (
-"files" -> Json.arr (
-Json.obj (
-"name" -> image
-)
-)
-)
-val filename = picture.filename
-val contentType = picture.contentType
-picture.ref.moveTo (new File (System.getenv ("TMPDIR") + image + ".gif") )
-Ok (res).as (JSON)
-case _ => BadRequest ("incorrect file Type");
-}
-}.getOrElse {
-Redirect (routes.Application.index).flashing (
-"error" -> "Missing file"
-)
-}
-case Left (multiPartBody) => BadRequest ("Max size exceeded")
-case _ => BadRequest ("Other")
-}
-}
+  def images(id: String) = Action {
+    try {
+      Ok.sendFile(new File(System.getenv("OPENSHIFT_DATA_DIR") + "images/" + id + ".gif")).as("image/png")
+    }
+    catch {
+      case e: FileNotFoundException => Ok("");
+    }
 
-def images (id: String) = Action {
-try {
-Ok.sendFile (new File (System.getenv ("OPENSHIFT_DATA_DIR") + "images/" + id + ".gif") ).as ("image/png")
-}
-catch {
-case e: FileNotFoundException => Ok ("");
-}
+  }
 
-}
+  def tempImages(id: String) = Action {
+    try {
+      Ok.sendFile(new File(System.getenv("TMPDIR") + id + ".gif")).as("image/png")
+    }
+    catch {
+      case e: FileNotFoundException => Ok("");
+    }
 
-def tempImages (id: String) = Action {
-try {
-Ok.sendFile (new File (System.getenv ("TMPDIR") + id + ".gif") ).as ("image/png")
-}
-catch {
-case e: FileNotFoundException => Ok ("");
-}
+  }
 
-}
-
-def deleteImages (id: String, action: Boolean) = Action {
-implicit request => {
-try {
-val repo = if (action) System.getenv ("OPENSHIFT_DATA_DIR") + "images/" + id + ".gif" else System.getenv ("TMPDIR") + id + ".gif"
-val imgSrc = new File (repo)
-imgSrc.delete ()
-session.get ("name").map {
-sessonAttr => DBUtil.speakers.update (MongoDBObject ("_id" -> sessonAttr), $unset ("image") )
-}
-Ok ("File Deleted");
-}
-catch {
-case e: FileNotFoundException => Ok ("No file deleted");
-}
-}
-}
+  def deleteImages(id: String, action: Boolean) = Action {
+    implicit request => {
+      try {
+        val repo = if (action) System.getenv("OPENSHIFT_DATA_DIR") + "images/" + id + ".gif" else System.getenv("TMPDIR") + id + ".gif"
+        val imgSrc = new File(repo)
+        imgSrc.delete()
+        session.get("name").map {
+          sessonAttr => DBUtil.speakers.update(MongoDBObject("_id" -> sessonAttr), $unset("image"))
+        }
+        Ok("File Deleted");
+      }
+      catch {
+        case e: FileNotFoundException => Ok("No file deleted");
+      }
+    }
+  }
 }
 
 
