@@ -27,7 +27,6 @@ angular.module('JMAGHREB', ['ngResource'])
                 scope.url = attrs.url;
                 scope.id = attrs.id;
                 scope.isEdit = true;
-                //alert("Salam = "+scope.$parent.$eval(attrs.image));
                 $("#" + attrs.id).fileupload({
                     acceptFileTypes: '/(\.|\/)(gif|jpe?g|png)$/i',
                     maxFileSize: 1000000, // 1 MB
@@ -36,9 +35,13 @@ angular.module('JMAGHREB', ['ngResource'])
 
                     done: function (e, data) {
                         $.each(data.result.files, function (index, file) {
+                            try{
                             scope.$apply(function () {
                                 scope.image = file.name;
                             })
+                            }catch(e){
+
+                            }
                         });
                     }
                 }).on('fileuploadadd', function (e, data) {
@@ -48,12 +51,6 @@ angular.module('JMAGHREB', ['ngResource'])
                         });
                     }).on('fileuploadfail', function (e, data) {
                         alert( " "+data.jqXHR.responseText);
-                        /*for( k in data.response()){
-                            alert(k)
-                        }
-                        for( k in data){
-                            alert(":: " +k)
-                        } */
                     });
                 scope.canceUpload = function () {
                     $http({method: 'GET', url: '/deleteImage/'+scope.image+'/'+scope.isEdit}).
