@@ -1,6 +1,6 @@
 // @SOURCE:/Users/faissalboutaounte/Sites/JMaghrebCFP/conf/routes
-// @HASH:fe77c709acd7c62002492ba8b3e9c3e7be54a448
-// @DATE:Mon Jul 29 00:38:03 EDT 2013
+// @HASH:6709c5397ec1d6d95763c0a46d7a349d586c590d
+// @DATE:Tue Jul 30 19:15:34 EDT 2013
 
 
 import play.core._
@@ -80,10 +80,18 @@ private[this] lazy val controllers_Application_upload11 = Route("POST", PathPatt
 private[this] lazy val controllers_Application_images12 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("images/"),DynamicPart("id", """[^/]+"""))))
         
 
-// @LINE:20
-private[this] lazy val controllers_Assets_at13 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+"""))))
+// @LINE:19
+private[this] lazy val controllers_Application_tempImages13 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("tmpImages/"),DynamicPart("id", """[^/]+"""))))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """go""","""controllers.Application.go"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """profile""","""controllers.Application.profile"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.login"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.resetPassword"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login/$email<[^/]+>/$code<[^/]+>""","""controllers.Application.changePassword(email:String, code:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Application.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.getSpeaker"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.createSpeaker"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.editSpeaker"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """activate/$email<[^/]+>/$code<[^/]+>""","""controllers.Application.activateSpeaker(email:String, code:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """upload""","""controllers.Application.upload"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """images/$id<[^/]+>""","""controllers.Application.images(id:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e match {
+
+// @LINE:20
+private[this] lazy val controllers_Application_deleteImages14 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("deleteImage/"),DynamicPart("id", """[^/]+"""),StaticPart("/"),DynamicPart("action", """[^/]+"""))))
+        
+
+// @LINE:22
+private[this] lazy val controllers_Assets_at15 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+"""))))
+        
+def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """go""","""controllers.Application.go"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """profile""","""controllers.Application.profile"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.login"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.resetPassword"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login/$email<[^/]+>/$code<[^/]+>""","""controllers.Application.changePassword(email:String, code:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Application.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.getSpeaker"""),("""PUT""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.createSpeaker"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """speaker""","""controllers.Application.editSpeaker"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """activate/$email<[^/]+>/$code<[^/]+>""","""controllers.Application.activateSpeaker(email:String, code:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """upload""","""controllers.Application.upload"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """images/$id<[^/]+>""","""controllers.Application.images(id:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tmpImages/$id<[^/]+>""","""controllers.Application.tempImages(id:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """deleteImage/$id<[^/]+>/$action<[^/]+>""","""controllers.Application.deleteImages(id:String, action:Boolean)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -195,8 +203,24 @@ case controllers_Application_images12(params) => {
 }
         
 
+// @LINE:19
+case controllers_Application_tempImages13(params) => {
+   call(params.fromPath[String]("id", None)) { (id) =>
+        invokeHandler(controllers.Application.tempImages(id), HandlerDef(this, "controllers.Application", "tempImages", Seq(classOf[String]),"GET", """""", Routes.prefix + """tmpImages/$id<[^/]+>"""))
+   }
+}
+        
+
 // @LINE:20
-case controllers_Assets_at13(params) => {
+case controllers_Application_deleteImages14(params) => {
+   call(params.fromPath[String]("id", None), params.fromPath[Boolean]("action", None)) { (id, action) =>
+        invokeHandler(controllers.Application.deleteImages(id, action), HandlerDef(this, "controllers.Application", "deleteImages", Seq(classOf[String], classOf[Boolean]),"GET", """""", Routes.prefix + """deleteImage/$id<[^/]+>/$action<[^/]+>"""))
+   }
+}
+        
+
+// @LINE:22
+case controllers_Assets_at15(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
    }

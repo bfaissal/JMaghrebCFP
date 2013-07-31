@@ -15,7 +15,9 @@ PUT         /speaker                      controllers.Application.createSpeaker
 POST        /speaker                      controllers.Application.editSpeaker
 GET         /activate/:email/:code        controllers.Application.activateSpeaker(email:String,code:String)
 POST        /upload                       controllers.Application.upload
-GET         /images/:id                       controllers.Application.images(id: String)
+GET         /images/:id                   controllers.Application.images(id: String)
+GET         /tmpImages/:id                controllers.Application.tempImages(id: String)
+GET         /deleteImage/:id/:action            controllers.Application.deleteImages(id :String,action :Boolean)
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                 controllers.Assets.at(path="/public", file)
 

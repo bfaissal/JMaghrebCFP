@@ -1,6 +1,6 @@
 // @SOURCE:/Users/faissalboutaounte/Sites/JMaghrebCFP/conf/routes
-// @HASH:fe77c709acd7c62002492ba8b3e9c3e7be54a448
-// @DATE:Mon Jul 29 00:38:03 EDT 2013
+// @HASH:6709c5397ec1d6d95763c0a46d7a349d586c590d
+// @DATE:Tue Jul 30 19:15:34 EDT 2013
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,7 +13,9 @@ import play.api.mvc._
 import Router.queryString
 
 
+// @LINE:22
 // @LINE:20
+// @LINE:19
 // @LINE:18
 // @LINE:17
 // @LINE:16
@@ -29,6 +31,8 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
+// @LINE:20
+// @LINE:19
 // @LINE:18
 // @LINE:17
 // @LINE:16
@@ -93,6 +97,12 @@ def editSpeaker(): Call = {
 }
                                                 
 
+// @LINE:19
+def tempImages(id:String): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "tmpImages/" + implicitly[PathBindable[String]].unbind("id", id))
+}
+                                                
+
 // @LINE:8
 def profile(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "profile")
@@ -111,6 +121,12 @@ def upload(): Call = {
 }
                                                 
 
+// @LINE:20
+def deleteImages(id:String, action:Boolean): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "deleteImage/" + implicitly[PathBindable[String]].unbind("id", id) + "/" + implicitly[PathBindable[Boolean]].unbind("action", action))
+}
+                                                
+
 // @LINE:6
 def index(): Call = {
    Call("GET", _prefix)
@@ -126,11 +142,11 @@ def getSpeaker(): Call = {
 }
                           
 
-// @LINE:20
+// @LINE:22
 class ReverseAssets {
     
 
-// @LINE:20
+// @LINE:22
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -142,7 +158,9 @@ def at(file:String): Call = {
                   
 
 
+// @LINE:22
 // @LINE:20
+// @LINE:19
 // @LINE:18
 // @LINE:17
 // @LINE:16
@@ -158,6 +176,8 @@ def at(file:String): Call = {
 // @LINE:6
 package controllers.javascript {
 
+// @LINE:20
+// @LINE:19
 // @LINE:18
 // @LINE:17
 // @LINE:16
@@ -262,6 +282,17 @@ def editSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:19
+def tempImages : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.tempImages",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "tmpImages/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
+
 // @LINE:8
 def profile : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.profile",
@@ -295,6 +326,17 @@ def upload : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:20
+def deleteImages : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.deleteImages",
+   """
+      function(id,action) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteImage/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", id) + "/" + (""" + implicitly[PathBindable[Boolean]].javascriptUnbind + """)("action", action)})
+      }
+   """
+)
+                        
+
 // @LINE:6
 def index : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.index",
@@ -320,11 +362,11 @@ def getSpeaker : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:20
+// @LINE:22
 class ReverseAssets {
     
 
-// @LINE:20
+// @LINE:22
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -341,7 +383,9 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:22
 // @LINE:20
+// @LINE:19
 // @LINE:18
 // @LINE:17
 // @LINE:16
@@ -357,6 +401,8 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:6
 package controllers.ref {
 
+// @LINE:20
+// @LINE:19
 // @LINE:18
 // @LINE:17
 // @LINE:16
@@ -421,6 +467,12 @@ def editSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
+// @LINE:19
+def tempImages(id:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.tempImages(id), HandlerDef(this, "controllers.Application", "tempImages", Seq(classOf[String]), "GET", """""", _prefix + """tmpImages/$id<[^/]+>""")
+)
+                      
+
 // @LINE:8
 def profile(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.profile(), HandlerDef(this, "controllers.Application", "profile", Seq(), "GET", """""", _prefix + """profile""")
@@ -439,6 +491,12 @@ def upload(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
+// @LINE:20
+def deleteImages(id:String, action:Boolean): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.deleteImages(id, action), HandlerDef(this, "controllers.Application", "deleteImages", Seq(classOf[String], classOf[Boolean]), "GET", """""", _prefix + """deleteImage/$id<[^/]+>/$action<[^/]+>""")
+)
+                      
+
 // @LINE:6
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
@@ -454,11 +512,11 @@ def getSpeaker(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:20
+// @LINE:22
 class ReverseAssets {
     
 
-// @LINE:20
+// @LINE:22
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
