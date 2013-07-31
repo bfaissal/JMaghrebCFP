@@ -29,11 +29,11 @@ angular.module('JMAGHREB', ['ngResource'])
                 scope.isEdit = true;
                 //alert("Salam = "+scope.$parent.$eval(attrs.image));
                 $("#" + attrs.id).fileupload({
+                    acceptFileTypes: '/(\.|\/)(gif|jpe?g|png)$/i',
+                    maxFileSize: 1000000, // 1 MB
                     dataType: 'json',
                     url: attrs.url,
-                    //autoUpload: false,
-                    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-                    maxFileSize: 1000000, // 1 MB
+
                     done: function (e, data) {
                         $.each(data.result.files, function (index, file) {
                             scope.$apply(function () {
