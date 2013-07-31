@@ -171,7 +171,7 @@ object Application extends Controller {
       }.getOrElse(BadRequest("Error"))
   }
 
-  def upload = Action(parse.maxLength(maxLength = 10240000, parse.multipartFormData)) {
+  def upload = Action(parse.maxLength(maxLength = 1024000, parse.multipartFormData)) {
     request =>
       request.body match {
         case Right(multiPartBody) =>
