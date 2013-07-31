@@ -46,6 +46,14 @@ angular.module('JMAGHREB', ['ngResource'])
                         $.each(data.files, function (index, file) {
 
                         });
+                    }).on('fileuploadfail', function (e, data) {
+                        alert( " "+data.jqXHR.responseText);
+                        /*for( k in data.response()){
+                            alert(k)
+                        }
+                        for( k in data){
+                            alert(":: " +k)
+                        } */
                     });
                 scope.canceUpload = function () {
                     $http({method: 'GET', url: '/deleteImage/'+scope.image+'/'+scope.isEdit}).
