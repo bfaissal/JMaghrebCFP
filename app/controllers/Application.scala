@@ -164,7 +164,7 @@ object Application extends Controller {
               Ok(json).as(JSON)
             }
             catch {
-              case e => InternalServerError("{\"message\":\"Dublicate username \"}").as(JSON)
+              case e => e.printStackTrace();InternalServerError("{\"message\":\"Dublicate username \"}").as(JSON)
             }
           }
         }
@@ -216,7 +216,6 @@ object Application extends Controller {
       val repo = if(action) System.getenv("OPENSHIFT_DATA_DIR")+"images/" +id+".gif" else System.getenv("TMPDIR")+id+".gif"
       val imgSrc = new File(repo)
       imgSrc.delete()
-      println(" ==> "+ session.get("name"))
       DBUtil.speakers.update(MongoDBObject("_id" -> session.get("name").get),  $unset("image"))
       Ok("File Deleted");
     }
