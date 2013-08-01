@@ -195,12 +195,10 @@ object Application extends Controller {
                   val contentType = picture.contentType
                   picture.ref.moveTo(new File(System.getenv("TMPDIR") + image + ".gif"))
                   Ok(res).as(JSON)
-                case _ => BadRequest("incorrect file Type");
+                case _ => BadRequest("incorrect file Type")
               }
           }.getOrElse {
-            Redirect(routes.Application.index).flashing(
-              "error" -> "Missing file"
-            )
+            Redirect(routes.Application.index).flashing("error" -> "Missing file")
           }
         case Left(multiPartBody) => BadRequest("Max size exceeded")
         case _ => BadRequest("Other")
