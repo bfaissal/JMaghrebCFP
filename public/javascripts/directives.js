@@ -37,8 +37,9 @@ angular.module('JMAGHREB', ['ngResource'])
                     done: function (e, data) {
                         $.each(data.result.files, function (index, file) {
                             try{
-                                scope.inProgress = false;
+
                             scope.$apply(function () {
+                                //scope.inProgress = false;
                                 scope.image = file.name;
                             })
                             }catch(e){
@@ -75,8 +76,8 @@ angular.module('JMAGHREB', ['ngResource'])
                 '<span>Select file ...</span>' +
                 '<!-- The file input field used as target for the file upload widget -->   ' +
                 '<input id="{{id}}" type="file" class="input-xxlarge" name="file"/> ' +
-                '</span>         ' +
-                '<div id="progress" class="progress" ng-show="inProgress">' +
+                '</span>       ' +
+                '<div id="progress" class="progress" ng-show="(image == null || image ==\'\') && inProgress">' +
                 '<div class="progress-bar" style="width: 0%"></div>' +
                 '</div>'+
                 '<div id="{{id}}Holder" ng-show="image != null && image !=\'\'" style="display: none"> ' +
