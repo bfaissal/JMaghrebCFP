@@ -130,7 +130,7 @@ object Application extends Controller {
               val res = Messages("registration.email.body", (json \ "fname").as[String], (json \ "_id").as[String], activationCode)
               MailUtil.send((json \ "_id").as[String], Messages("registration.email.subject"), res, (json \ "fname").as[String])
               val image = (json \ "image").asOpt[String].get
-              val imgSrc = new File(System.getenv("TMPDIR") + image + ".gif")
+              val imgSrc = new File(System.getenv("TMPDIR")  + "uploads/" + image + ".gif")
               val imgDest = new File(System.getenv("OPENSHIFT_DATA_DIR") + "images/" + image + ".gif")
               if (imgSrc.exists()) {
                 new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue)
@@ -159,7 +159,7 @@ object Application extends Controller {
                 case _ => throw new ClassCastException
               })
               val image = (json \ "image").asOpt[String].get
-              val imgSrc = new File(System.getenv("TMPDIR") + image + ".gif")
+              val imgSrc = new File(System.getenv("TMPDIR")  + "uploads/" + image + ".gif")
               val imgDest = new File(System.getenv("OPENSHIFT_DATA_DIR") + "images/" + image + ".gif")
               if (imgSrc.exists()) {
                 new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue)
@@ -193,7 +193,7 @@ object Application extends Controller {
                   )
                   val filename = picture.filename
                   val contentType = picture.contentType
-                  picture.ref.moveTo(new File(System.getenv("TMPDIR") + image + ".gif"))
+                  picture.ref.moveTo(new File(System.getenv("TMPDIR") + "uploads/" + image + ".gif"))
                   Ok(res).as(JSON)
                 case _ => BadRequest("incorrect file Type")
               }
@@ -217,7 +217,7 @@ object Application extends Controller {
 
   def tempImages(id: String) = Action {
     try {
-      Ok.sendFile(new File(System.getenv("TMPDIR") + id + ".gif")).as("image/png")
+      Ok.sendFile(new File(System.getenv("TMPDIR") + "uploads/" + id + ".gif")).as("image/png")
     }
     catch {
       case e: FileNotFoundException => Ok("");
@@ -228,7 +228,7 @@ object Application extends Controller {
   def deleteImages(id: String, action: Boolean) = Action {
     implicit request => {
       try {
-        val repo = if (action) System.getenv("OPENSHIFT_DATA_DIR") + "images/" + id + ".gif" else System.getenv("TMPDIR") + id + ".gif"
+        val repo = if (action) System.getenv("OPENSHIFT_DATA_DIR") + "images/" + id + ".gif" else System.getenv("TMPDIR")  + "uploads/" + id + ".gif"
         val imgSrc = new File(repo)
         imgSrc.delete()
         session.get("name").map {
