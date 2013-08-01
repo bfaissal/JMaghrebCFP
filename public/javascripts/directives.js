@@ -27,6 +27,7 @@ angular.module('JMAGHREB', ['ngResource'])
                 scope.url = attrs.url;
                 scope.id = attrs.id;
                 scope.isEdit = true;
+                scope.inProgress = false;
                 $("#" + attrs.id).fileupload({
                     acceptFileTypes: '/(\.|\/)(gif|jpe?g|png)$/i',
                     maxFileSize: 1000000, // 1 MB
@@ -36,6 +37,7 @@ angular.module('JMAGHREB', ['ngResource'])
                     done: function (e, data) {
                         $.each(data.result.files, function (index, file) {
                             try{
+                                scope.inProgress = false;
                             scope.$apply(function () {
                                 scope.image = file.name;
                             })
@@ -46,6 +48,7 @@ angular.module('JMAGHREB', ['ngResource'])
                     }
                 }).on('fileuploadadd', function (e, data) {
                         scope.isEdit = false;
+                        scope.inProgress = true;
                         $.each(data.files, function (index, file) {
 
                         });
@@ -73,7 +76,7 @@ angular.module('JMAGHREB', ['ngResource'])
                 '<!-- The file input field used as target for the file upload widget -->   ' +
                 '<input id="{{id}}" type="file" class="input-xxlarge" name="file"/> ' +
                 '</span>         ' +
-                '<div id="progress" class="progress" ng-show="image == null || image ==\'\'">' +
+                '<div id="progress" class="progress" ng-show="inProgress">' +
                 '<div class="progress-bar" style="width: 0%"></div>' +
                 '</div>'+
                 '<div id="{{id}}Holder" ng-show="image != null && image !=\'\'" style="display: none"> ' +
