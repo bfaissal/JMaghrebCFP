@@ -87,7 +87,7 @@
                             <div class="control-group">
 
                                 <div class="controls">
-                                    <button class="btn" ng-disabled="registration.$invalid || (login.password != login.cpassword)" ng-click="editAccounte()">
+                                    <button class="btn" ng-disabled="registration.$invalid || (login.password != login.cpassword) || (login.image == null || login.image=='')" ng-click="editAccounte()">
                                         Save</button>
                                     <button class="btn btn-danger" ng-click="cancelEditAccounte()">Cancel</button>
                                 </div>

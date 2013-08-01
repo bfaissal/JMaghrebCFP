@@ -175,7 +175,7 @@
                                 <div class="control-group">
 
                                     <div class="controls">
-                                        <button class="btn" ng-disabled="registration.$invalid || (speaker.password != speaker.cpassword)" ng-click="createAccounte()">
+                                        <button class="btn" ng-disabled="registration.$invalid || (speaker.password != speaker.cpassword) || (speaker.image == null || speaker.image=='')" ng-click="createAccounte()">
                                             Create Account</button>
                                     </div>
                                 </div>
