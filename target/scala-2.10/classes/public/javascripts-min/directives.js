@@ -50,6 +50,8 @@ angular.module('JMAGHREB', ['ngResource'])
                 }).on('fileuploadadd', function (e, data) {
                         scope.isEdit = false;
                         scope.inProgress = true;
+                        $('#progress .progress-bar').css(
+                            'width','0%');
                         $.each(data.files, function (index, file) {
 
                         });
