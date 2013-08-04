@@ -10,7 +10,7 @@ import controllers.Application
 import play.api.mvc._
 import play.api.{Logger, GlobalSettings}
 
-object Global extends WithFilters(AuthorizedFilter("index", "createSpeaker", "editSpeaker", "getSpeaker", "go")) with GlobalSettings {
+object Global extends WithFilters(AuthorizedFilter("index", "createSpeaker", "editSpeaker", "getSpeaker", "go","profile")) with GlobalSettings {
   override def onStop(app: play.api.Application) = {
     Logger.info("Shutdown ...")
   }
