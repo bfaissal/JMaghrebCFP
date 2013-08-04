@@ -1,4 +1,4 @@
-JMaghreb Call For Paper Application
+JMaghreb Call For Paper Application 
 ===================================
 Requirements
 ------------
