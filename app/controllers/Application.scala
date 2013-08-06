@@ -213,7 +213,7 @@ object Application extends Controller {
       Ok.sendFile(new File(System.getenv("OPENSHIFT_DATA_DIR") + "images/" + id + ".gif")).as("image/png")
     }
     catch {
-      case e: FileNotFoundException => Ok("");
+      case e: FileNotFoundException => e.printStackTrace(); Ok("");
     }
 
   }
@@ -223,7 +223,7 @@ object Application extends Controller {
       Ok.sendFile(new File(System.getenv("TMPDIR") + "uploads/" + id + ".gif")).as("image/png")
     }
     catch {
-      case e: FileNotFoundException => Ok("");
+      case e:  FileNotFoundException => e.printStackTrace(); Ok("");
     }
 
   }
