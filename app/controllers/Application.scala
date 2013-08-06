@@ -158,17 +158,20 @@ object Application extends Controller {
                 case x: DBObject => x;
                 case _ => throw new ClassCastException
               })
-              val image = (json \ "image").asOpt[String].get
-              val imgSrc = new File(System.getenv("TMPDIR") + "uploads/" + image + ".gif")
-              val imgDest = new File(System.getenv("OPENSHIFT_DATA_DIR") + "images/" + image + ".gif")
-              if (imgSrc.exists()) {
-                new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue)
-                imgSrc.delete()
+              (json \ "image").asOpt[String].map {
+                image => {
+                  val imgSrc = new File(System.getenv("TMPDIR") + "uploads/" + image + ".gif")
+                  val imgDest = new File(System.getenv("OPENSHIFT_DATA_DIR") + "images/" + image + ".gif")
+                  if (imgSrc.exists()) {
+                    new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue)
+                    imgSrc.delete()
+                  }
               }
-              Ok(json).as(JSON)
             }
-            catch {
-              case e => e.printStackTrace(); InternalServerError("{\"message\":\"Dublicate username \"}").as(JSON)
+            Ok(json).as(JSON)
+          }
+          catch {
+              case e => e.printStackTrace(); InternalServerError("{\"message\":\"An error occured, please contact the adminastrators. \"}").as(JSON)
             }
           }
         }
