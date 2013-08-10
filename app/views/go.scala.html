@@ -130,6 +130,15 @@
                         </div>
 
                         <div class="control-group">
+                                <!-- Abstract-->
+                            <label class="control-label" for="abstract">Other Speaker</label>
+                            <div class="controls">
+                                <input type="text" id="speaker"  ng-model="selected.others" url="empty" class="input-xxlarge" autocomplete/>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
                                 <!-- Button -->
                             <div class="controls">
                                 <button class="btn" ng-disabled="submissionForm.$invalid" ng-click="addTalk()">Save</button>
@@ -147,4 +156,8 @@
             </div>
         </div>
     </div>
-}{<div/>}
+}{
+
+    <script src="@routes.Assets.at("javascripts/typeahead.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/hogan-2.0.0")" type="text/javascript"></script>
+}

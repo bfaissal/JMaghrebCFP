@@ -3,21 +3,22 @@
 # ~~~~
 
 # Home page
-GET         /                             controllers.Application.index
-GET         /go                           controllers.Application.go
-GET         /profile                      controllers.Application.profile
-POST        /login                        controllers.Application.login
-PUT         /login                        controllers.Application.resetPassword
-GET         /login/:email/:code           controllers.Application.changePassword(email:String , code :String)
-GET         /logout                       controllers.Application.logout
-GET         /speaker                      controllers.Application.getSpeaker
-PUT         /speaker                      controllers.Application.createSpeaker
-POST        /speaker                      controllers.Application.editSpeaker
-GET         /activate/:email/:code        controllers.Application.activateSpeaker(email:String,code:String)
-POST        /upload                       controllers.Application.upload
-GET         /images/:id                   controllers.Application.images(id: String)
-GET         /tmpImages/:id                controllers.Application.tempImages(id: String)
-GET         /deleteImage/:id/:action            controllers.Application.deleteImages(id :String,action :Boolean)
+GET         /                               controllers.Application.index
+GET         /go                             controllers.Application.go
+GET         /profile                        controllers.Application.profile
+GET         /allSpeakers                        controllers.Application.allSpeakers(q: String)
+POST        /login                          controllers.Application.login
+PUT         /login                          controllers.Application.resetPassword
+GET         /login/:email/:code             controllers.Application.changePassword(email:String , code :String)
+GET         /logout                         controllers.Application.logout
+GET         /speaker                        controllers.Application.getSpeaker
+PUT         /speaker                        controllers.Application.createSpeaker
+POST        /speaker                        controllers.Application.editSpeaker
+GET         /activate/:email/:code          controllers.Application.activateSpeaker(email:String,code:String)
+POST        /upload                         controllers.Application.upload
+GET         /images/:id                     controllers.Application.images(id: String)
+GET         /tmpImages/:id                  controllers.Application.tempImages(id: String)
+GET         /deleteImage/:id/:action        controllers.Application.deleteImages(id :String,action :Boolean)
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                 controllers.Assets.at(path="/public", file)
+GET         /assets/*file                   controllers.Assets.at(path="/public", file)
 

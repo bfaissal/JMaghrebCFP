@@ -30,6 +30,20 @@ object Application extends Controller {
     }
   }
 
+  def allSpeakers(q: String) = Action {
+    implicit request => {
+      val query =  ""+q+"/"
+      //"_id" $regex "/faissalb@evision.ca/".r
+      //MongoDBObject("_id" -> "/fai/") $regex "/fai/"
+      "_id".$near (74.2332, -75.23452)
+      Ok(DBUtil.speakers.find(
+        MongoDBObject("_id" -> q.r)
+        /*"_id" -> query "_id" $eq "faissalb@evision.ca" */
+        //MongoDBObject("_id" -> MongoDBObject("$regex" -> q.r))
+        ,MongoDBObject("_id" -> 1)++("fname" -> 1)++("lname" -> 1)).mkString("[",",","]")).as(JSON)
+    }
+  }
+
   def profile = Action {
     implicit request => {
       session.get("name").map {
