@@ -152,9 +152,21 @@ Seq[Any](format.raw/*1.19*/("""
 
                         <div class="control-group">
                                 <!-- Abstract-->
-                            <label class="control-label" for="abstract">Other Speaker</label>
+                            <label class="control-label" for="abstract">Other Speakers</label>
                             <div class="controls">
-                                <input type="text" id="speaker"  ng-model="selected.others" url="empty" class="input-xxlarge" autocomplete/>
+                                <small class="help-block">Introduce emails of the other speakers. Note that they should have already created their accounts</small>
+                                <button class="btn" value="add" ng-click="addOtherSpeaker(selected)" style="margin-bottom: 10px;">Add</button>
+                                <div ng-repeat="oSpeaker in selected.others" style="margin-bottom: 10px;clear: both">
+                                    <input ng-show="usersData[$index].fname == '' || usersData[$index].fname == undefined" type="email" id="speaker" ng-change="loadSpeakerInfo(oSpeaker.email,$index)" ng-model="oSpeaker.email" class="input-xxlarge"/>
+
+                                    <div style="margin-top: 10px" ng-show="usersData[$index].fname != '' && usersData[$index].fname != undefined">
+
+                                        <img style="float: left;margin-bottom: 10px;margin-right: 10px" width="100px" src="/images/"""),format.raw/*143.132*/("""{"""),format.raw/*143.133*/("""{"""),format.raw/*143.134*/(""" usersData[$index].image """),format.raw/*143.159*/("""}"""),format.raw/*143.160*/("""}"""),format.raw/*143.161*/("""" />
+                                        <div>"""),format.raw/*144.46*/("""{"""),format.raw/*144.47*/("""{"""),format.raw/*144.48*/(""" usersData[$index].fname """),format.raw/*144.73*/("""}"""),format.raw/*144.74*/("""}"""),format.raw/*144.75*/(""" """),format.raw/*144.76*/("""{"""),format.raw/*144.77*/("""{"""),format.raw/*144.78*/(""" usersData[$index].lname """),format.raw/*144.103*/("""}"""),format.raw/*144.104*/("""}"""),format.raw/*144.105*/("""</div>
+
+                                    </div>
+                                    <a data-toggle="modal" href="#myModal" class="btn btn-lg" ng-click="deleteSpeakerConfirmation($index)"><span class="icon-remove"></span>Delete</a>
+                                </div>
                             </div>
                         </div>
 
@@ -176,12 +188,36 @@ Seq[Any](format.raw/*1.19*/("""
 
             </div>
         </div>
+            <!-- Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Confirm action</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete the entry ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="deleteSpeaker()">Delete</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </div>
-""")))}/*159.2*/{_display_(Seq[Any](format.raw/*159.3*/("""
 
-    <script src=""""),_display_(Seq[Any](/*161.19*/routes/*161.25*/.Assets.at("javascripts/typeahead.min.js"))),format.raw/*161.67*/("""" type="text/javascript"></script>
-    <script src=""""),_display_(Seq[Any](/*162.19*/routes/*162.25*/.Assets.at("javascripts/hogan-2.0.0"))),format.raw/*162.62*/("""" type="text/javascript"></script>
-""")))})),format.raw/*163.2*/("""
+
+
+
+
+
+""")))}/*195.2*/{_display_(Seq[Any](format.raw/*195.3*/("""
+
+    <script src=""""),_display_(Seq[Any](/*197.19*/routes/*197.25*/.Assets.at("javascripts/typeahead.min.js"))),format.raw/*197.67*/("""" type="text/javascript"></script>
+    <script src=""""),_display_(Seq[Any](/*198.19*/routes/*198.25*/.Assets.at("javascripts/hogan-2.0.0"))),format.raw/*198.62*/("""" type="text/javascript"></script>
+""")))})),format.raw/*199.2*/("""
 """))}
     }
     
@@ -194,11 +230,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Aug 08 20:46:50 EDT 2013
+                    DATE: Sat Aug 10 16:30:00 EDT 2013
                     SOURCE: /Users/faissalboutaounte/Sites/JMaghrebCFP/app/views/go.scala.html
-                    HASH: d09bddbf3979a87882eadd29e521434871dac9f6
-                    MATRIX: 502->1|596->18|633->21|672->52|710->53|808->134|845->135|1491->753|1520->754|1549->755|1588->766|1617->767|1646->768|1675->769|1704->770|1733->771|1772->782|1801->783|1830->784|1860->786|1889->787|1918->788|1955->797|1984->798|2013->799|3303->2061|3332->2062|3361->2063|3401->2075|3430->2076|3459->2077|3525->2115|3554->2116|3583->2117|3661->2167|3690->2168|3719->2169|4829->3251|4858->3252|4887->3253|4926->3264|4955->3265|4984->3266|9805->8068|9844->8069|9901->8089|9917->8095|9982->8137|10072->8190|10088->8196|10148->8233|10216->8269
-                    LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|73->52|73->52|73->52|73->52|73->52|73->52|74->53|74->53|74->53|74->53|74->53|74->53|92->71|92->71|92->71|92->71|92->71|92->71|180->159|180->159|182->161|182->161|182->161|183->162|183->162|183->162|184->163
+                    HASH: 1795078bcbad90efd481fc104dd6e9c152eaab29
+                    MATRIX: 502->1|596->18|633->21|672->52|710->53|808->134|845->135|1491->753|1520->754|1549->755|1588->766|1617->767|1646->768|1675->769|1704->770|1733->771|1772->782|1801->783|1830->784|1860->786|1889->787|1918->788|1955->797|1984->798|2013->799|3303->2061|3332->2062|3361->2063|3401->2075|3430->2076|3459->2077|3525->2115|3554->2116|3583->2117|3661->2167|3690->2168|3719->2169|4829->3251|4858->3252|4887->3253|4926->3264|4955->3265|4984->3266|9793->8045|9824->8046|9855->8047|9910->8072|9941->8073|9972->8074|10051->8124|10081->8125|10111->8126|10165->8151|10195->8152|10225->8153|10255->8154|10285->8155|10315->8156|10370->8181|10401->8182|10432->8183|12536->10268|12575->10269|12632->10289|12648->10295|12713->10337|12803->10390|12819->10396|12879->10433|12947->10469
+                    LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|38->17|73->52|73->52|73->52|73->52|73->52|73->52|74->53|74->53|74->53|74->53|74->53|74->53|92->71|92->71|92->71|92->71|92->71|92->71|164->143|164->143|164->143|164->143|164->143|164->143|165->144|165->144|165->144|165->144|165->144|165->144|165->144|165->144|165->144|165->144|165->144|165->144|216->195|216->195|218->197|218->197|218->197|219->198|219->198|219->198|220->199
                     -- GENERATED --
                 */
             

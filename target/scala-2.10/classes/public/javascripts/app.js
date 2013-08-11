@@ -47,7 +47,7 @@ function registerController($scope,$resource){
 }
 
 
-function talksController($scope,$resource,$location){
+function talksController($scope,$resource,$location,$http){
     var Login = $resource("/speaker",
         {} ,
         {
@@ -55,7 +55,31 @@ function talksController($scope,$resource,$location){
             save: {method: 'POST'}
         });
     $scope.login = new Login();
+    $scope.usersData = {};
     $scope.login.$logIn();
+    $scope.addOtherSpeaker = function(aTrack){
+        if($scope.selected == undefined){
+            $scope.selected = {};
+        }
+        if($scope.selected.others == undefined){
+            $scope.selected.others = [];
+        }
+        $scope.selected.others.push({});
+    }
+    $scope.loadSpeakerInfo = function(email,index){
+        $http.get('/allSpeakers?q='+email).success(function(data, status, headers) {
+            alert("Salam "+data.image);
+            $scope.usersData[index] = data;
+        });
+    }
+    $scope.deleteSpeakerConfirmation = function(index){
+        $scope.selectedIndex = index;
+    }
+    $scope.deleteSpeaker = function(){
+        $scope.selected.others.splice($scope.selectedIndex,1);
+        $scope.usersData.splice($scope.selectedIndex,1);
+        $('#myModal').modal('hide')
+    }
     $scope.cancelAddTalk = function(){
         $scope.login.$logIn(function(){
             $scope.edition = false;
@@ -88,8 +112,14 @@ function talksController($scope,$resource,$location){
             $scope.message = {msg : u.data.message,type:'alert-error'}
         });
     }
+
     $scope.editaTrack = function(aTrack){
         $scope.selected = aTrack;
+        $scope.usersData = [];
+        for(i in aTrack.others){
+            $scope.loadSpeakerInfo (aTrack.others[i].email,i);
+            i++;
+        }
         $scope.edition = true;
     }
     $scope.submitTrack = function(aTrack){

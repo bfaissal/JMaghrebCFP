@@ -105,9 +105,9 @@ angular.module('JMAGHREB', ['ngResource'])
                     local: ['timtrueman', 'JakeHarding', 'vskarich','Faissla','Nada','Leila','Faissal2','Fabian','Fiesta'],
                     remote: '/allSpeakers?q=%QUERY',
                     template: [
-                        '<p class="repo-language">{{fname}}</p>',
-                        '<p class="repo-name">{{lname}}</p>',
-                        '<p class="repo-description">{{_id}}</p>'
+                        '<p>{{fname}}</p>',
+                        '<p>{{lname}}</p>',
+                        '<p>{{_id}}</p>'
                     ].join(''),
                     engine: Hogan
                 });

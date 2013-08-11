@@ -131,9 +131,21 @@
 
                         <div class="control-group">
                                 <!-- Abstract-->
-                            <label class="control-label" for="abstract">Other Speaker</label>
+                            <label class="control-label" for="abstract">Other Speakers</label>
                             <div class="controls">
-                                <input type="text" id="speaker"  ng-model="selected.others" url="empty" class="input-xxlarge" autocomplete/>
+                                <small class="help-block">Introduce emails of the other speakers. Note that they should have already created their accounts</small>
+                                <button class="btn" value="add" ng-click="addOtherSpeaker(selected)" style="margin-bottom: 10px;">Add</button>
+                                <div ng-repeat="oSpeaker in selected.others" style="margin-bottom: 10px;clear: both">
+                                    <input ng-show="usersData[$index].fname == '' || usersData[$index].fname == undefined" type="email" id="speaker" ng-change="loadSpeakerInfo(oSpeaker.email,$index)" ng-model="oSpeaker.email" class="input-xxlarge"/>
+
+                                    <div style="margin-top: 10px" ng-show="usersData[$index].fname != '' && usersData[$index].fname != undefined">
+
+                                        <img style="float: left;margin-bottom: 10px;margin-right: 10px" width="100px" src="/images/{{ usersData[$index].image }}" />
+                                        <div>{{ usersData[$index].fname }} {{ usersData[$index].lname }}</div>
+
+                                    </div>
+                                    <a data-toggle="modal" href="#myModal" class="btn btn-lg" ng-click="deleteSpeakerConfirmation($index)"><span class="icon-remove"></span>Delete</a>
+                                </div>
                             </div>
                         </div>
 
@@ -155,7 +167,31 @@
 
             </div>
         </div>
+            <!-- Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Confirm action</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete the entry ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="deleteSpeaker()">Delete</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </div>
+
+
+
+
+
+
 }{
 
     <script src="@routes.Assets.at("javascripts/typeahead.min.js")" type="text/javascript"></script>
