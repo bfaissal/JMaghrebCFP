@@ -68,7 +68,6 @@ function talksController($scope,$resource,$location,$http){
     }
     $scope.loadSpeakerInfo = function(email,index){
         $http.get('/allSpeakers?q='+email).success(function(data, status, headers) {
-            alert("Salam "+data.image);
             $scope.usersData[index] = data;
         });
     }

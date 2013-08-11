@@ -88,3 +88,31 @@ angular.module('JMAGHREB', ['ngResource'])
 
         }
     })
+    .directive('autocomplete', function ($http) {
+        return {
+            restrict: 'A',
+            replace: false,
+            transclude: false,
+            scope: {id: '=',
+                url: "="},
+            link: function (scope, element, attrs) {
+
+                scope.url = attrs.url;
+                scope.id = attrs.id;
+
+                $(element).typeahead({
+                    name: 'accounts',
+                    local: ['timtrueman', 'JakeHarding', 'vskarich','Faissla','Nada','Leila','Faissal2','Fabian','Fiesta'],
+                    remote: '/allSpeakers?q=%QUERY',
+                    template: [
+                        '<p>{{fname}}</p>',
+                        '<p>{{lname}}</p>',
+                        '<p>{{_id}}</p>'
+                    ].join(''),
+                    engine: Hogan
+                });
+
+            }
+
+        }
+    })
