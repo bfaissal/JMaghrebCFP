@@ -80,8 +80,8 @@ angular.module('JMAGHREB', ['ngResource'])
                 '<div class="progress-bar" style="width: 0%"></div>' +
                 '</div>'+
                 '<div id="{{id}}Holder" ng-show="image != null && image !=\'\'" style="display: none"> ' +
-                '<div><img style="width: 150px;" ng-show="isEdit" src=\'/images/{{ image }}\'/>' +
-                '<img style="width: 150px;" ng-show="!isEdit" src=\'/tmpImages/{{ image }}\'/></div>' +
+                '<div><img style="width: 150px;" ng-show="isEdit" ng-src=\'/images/{{ image }}\'/>' +
+                '<img style="width: 150px;" ng-show="!isEdit" ng-src=\'/tmpImages/{{ image }}\'/></div>' +
                 '<button class="btn btn-danger" ng-click="canceUpload()">Delete</button>  ' +
                 '</div>' +
                 '</div>'

@@ -34,7 +34,7 @@ object Application extends Controller {
     implicit request => {
       DBUtil.speakers.findOne(
         MongoDBObject("_id" -> q)
-        ,MongoDBObject("fname" -> 1)++("lname" -> 1)++("image" -> 1)).map {
+        , MongoDBObject("fname" -> 1) ++ ("lname" -> 1) ++ ("image" -> 1)).map {
         res =>
           Ok(res.toString).as(JSON)
       }.getOrElse(NotFound("{}").as(JSON))
@@ -177,11 +177,11 @@ object Application extends Controller {
                     new FileOutputStream(imgDest).getChannel().transferFrom(new FileInputStream(imgSrc).getChannel, 0, Long.MaxValue)
                     imgSrc.delete()
                   }
+                }
               }
+              Ok(json).as(JSON)
             }
-            Ok(json).as(JSON)
-          }
-          catch {
+            catch {
               case e => e.printStackTrace(); InternalServerError("{\"message\":\"An error occured, please contact the adminastrators. \"}").as(JSON)
             }
           }
@@ -234,7 +234,7 @@ object Application extends Controller {
       Ok.sendFile(new File(System.getenv("TMPDIR") + "uploads/" + id + ".gif")).as("image/png")
     }
     catch {
-      case e:  FileNotFoundException => e.printStackTrace(); Ok("");
+      case e: FileNotFoundException => e.printStackTrace(); Ok("");
     }
 
   }
